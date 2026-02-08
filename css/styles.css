@@ -1,6 +1,9 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+p {
+    font-family: 'Roboto', sans-serif;
+}
 
 h1 {
     font-family: 'Bebas Neue', sans-serif;
@@ -26,11 +29,15 @@ body {
     width: 100%;
     z-index: 10;
 }
+.navlink {
+    font-family: 'Roboto', sans-serif;
+}
 
 .navbar a {
     color: white;
     margin-left: 20px;
     text-decoration: none;
+    font-size: 32px;
 }
 
 .logo {
@@ -39,23 +46,25 @@ body {
 
 /* HERO */
 .hero {
-    height: 100vh;
+    height: 900px;
     background: linear-gradient(
         rgba(0,0,0,0.1),
         rgba(0,0,0,0.1)
     ),
         url("../hero.png") center/cover;
     display: flex;
-    align-items: center;
+    background-attachment: fixed;
+/*    align-items: center;*/
 }
 
 .hero-content {
     padding-left: 80px;
-    max-width: 500px;
+    max-width: 2000px;
 }
 
 .hero h1 {
-    font-size: 4rem;
+    padding-top: 180px;
+    font-size: 96px;
     font-weight: 600;
     letter-spacing: 10%;
     text-shadow: -4px 4px 0 rgba(116, 116, 116, 0.54);
@@ -72,6 +81,8 @@ body {
 
 .hero p {
     margin: 15px 0 25px;
+    font-size: 40px;
+    text-shadow: -4px 4px 4 rgba(0, 0, 0, 0.25);
 }
 
 /* BUTTONS */
@@ -83,6 +94,7 @@ body {
     display: inline-block;
     background: #549E39;
     font-size: em;
+    font-family: 'Bebas Neue', sans-serif;
 }
 
 .explore {
@@ -98,6 +110,7 @@ body {
 .offerings {
     background: #549E39;
     padding: 6px 15px;
+
 }
 
 /* WHO WE ARE */
@@ -172,3 +185,54 @@ body {
     display: block;
     margin-top: 10px;
 }
+
+.who-section {
+    position: relative;
+    height: 280px;
+    background:
+        linear-gradient(rgba(0, 145, 204, 0.85), rgba(0, 145, 204, 0.85)),
+        url("../ocean.jpg") center / cover no-repeat;
+    overflow: hidden;
+}
+
+/* curved darker shape */
+.who-section::before {
+    content: "";
+    position: absolute;
+    left: -200px;
+    top: 0px;
+    width: 65%;
+    height: 200%;
+    background: #0077a8;
+    border-top-right-radius: 300px;
+    border-bottom-right-radius: 300px;
+}
+
+/* content layout */
+.who-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+}
+
+/* left title */
+.who-content h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 96px;
+    letter-spacing: 12%;
+    text-shadow: -5px 5px 0 rgba(255, 255, 255, 0.25);
+
+}
+
+/* right text */
+.who-content p {
+    max-width: 50%;
+    text-align: right;
+    font-size: 36px;
+    line-height: 1.5;
+}
+
