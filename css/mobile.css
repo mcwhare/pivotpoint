@@ -1,0 +1,242 @@
+body, p, li {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #fff;
+    background: #0e6fa8;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+.navlink {
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar a {
+    color: white;
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.logo {
+    font-weight: 700;
+}
+
+/* HERO */
+.hero {
+    height: 800px;
+    background: linear-gradient(
+        rgba(0,0,0,0.1),
+        rgba(0,0,0,0.1)
+    ),
+        url("../hero.png") center/cover;
+    display: flex;
+    background-attachment: fixed;
+/*    align-items: center;*/
+}
+
+.hero-content {
+    padding-left: 20px;
+    max-width: 2000px;
+}
+
+.hero h1 {
+    padding-top: 180px;
+    font-size: 56px;
+    font-weight: 600;
+    letter-spacing: 10%;
+    text-shadow: -4px 4px 0 rgba(116, 116, 116, 0.54);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #606060;
+
+}
+
+.hero h1 span {
+    color: #0DA9FF;
+    text-decoration: underline;
+    text-decoration-color: #0DA9FF;
+}
+
+.hero p {
+    margin: 15px 0 25px;
+    font-size: 26px;
+    text-shadow: -4px 4px 4 rgba(0, 0, 0, 0.25);
+}
+
+/* BUTTONS */
+.btn {
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    background: #549E39;
+    font-size: em;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.explore {
+    color: #ffffff;
+    font-size: 26px;
+}
+
+.secondary {
+    background: #38c172;
+    color: #003b5c;
+}
+
+.offerings {
+    background: #549E39;
+    padding: 6px 15px;
+
+}
+
+
+
+/* BUNDLES */
+.bundles {
+    padding: 60px;
+    background: #0e6fa8;
+    text-align: center;
+    background: linear-gradient(
+        rgba(0,0,0,0.1),
+        rgba(0,0,0,0.1)
+    ),
+        url("../bundlebg.png") center/cover;
+}
+
+.bundles h2{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 46px;
+    letter-spacing: 10%;
+    text-shadow: -5px 5px 0 rgba(255, 255, 255, 0.25);
+}
+
+.bundle-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.card {
+    background: url("../card1.png");
+    background-size: cover;
+    padding: 10px;
+    padding-bottom: 30px;
+    border-radius: 40px;
+    width: 465px;
+}
+
+.card h3 {
+    margin-bottom: 8px;
+    font-size: 33px;
+}
+
+.price {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.card ul {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.card li {
+    margin: 8px 0;
+    font-size: 32px;
+}
+
+.premium {
+    background: url("../card2.png");
+    background-size: cover;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    background: #0b5c8a;
+}
+
+.testimonial {
+    max-width: 250px;
+    font-size: 0.9rem;
+}
+
+.testimonial strong {
+    display: block;
+    margin-top: 10px;
+}
+
+.who-section {
+    position: relative;
+    height: 280px;
+    background:
+        linear-gradient(rgba(0, 145, 204, 0.85), rgba(0, 145, 204, 0.85)),
+        url("../ocean.jpg") center / cover no-repeat;
+    overflow: hidden;
+}
+
+/* curved darker shape */
+.who-section::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 65%;
+    height: 200%;
+    background: #0077a8;
+    border-top-right-radius: 300px;
+    border-bottom-right-radius: 300px;
+}
+
+/* content layout */
+.who-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+/* left title */
+.who-content h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 46px;
+    letter-spacing: 12%;
+    text-shadow: -5px 5px 0 rgba(255, 255, 255, 0.25);
+
+}
+
+/* right text */
+.who-content p {
+    max-width: 50%;
+    text-align: right;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
