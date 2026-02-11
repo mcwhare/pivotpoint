@@ -1,9 +1,13 @@
-body, p, li {
-    font-family: 'Roboto', sans-serif;
+body,
+p,
+li {
+    font-family: "Roboto", sans-serif;
 }
 
-h1, h2, h3 {
-    font-family: 'Bebas Neue', sans-serif;
+h1,
+h2,
+h3 {
+    font-family: "Bebas Neue", sans-serif;
 }
 
 * {
@@ -27,7 +31,7 @@ body {
     z-index: 10;
 }
 .navlink {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .navbar a {
@@ -44,19 +48,16 @@ body {
 /* HERO */
 .hero {
     height: 800px;
-    background: linear-gradient(
-        rgba(0,0,0,0.1),
-        rgba(0,0,0,0.1)
-    ),
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
         url("../hero.png") center/cover;
     display: flex;
     background-attachment: fixed;
-/*    align-items: center;*/
+    /*    align-items: center;*/
 }
 
 .hero-content {
     padding-left: 20px;
-    max-width: 2000px;
 }
 
 .hero h1 {
@@ -67,13 +68,12 @@ body {
     text-shadow: -4px 4px 0 rgba(116, 116, 116, 0.54);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #606060;
-
 }
 
 .hero h1 span {
-    color: #0DA9FF;
+    color: #0da9ff;
     text-decoration: underline;
-    text-decoration-color: #0DA9FF;
+    text-decoration-color: #0da9ff;
 }
 
 .hero p {
@@ -89,9 +89,9 @@ body {
     font-weight: 600;
     text-decoration: none;
     display: inline-block;
-    background: #549E39;
+    background: #549e39;
     font-size: em;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: "Bebas Neue", sans-serif;
 }
 
 .explore {
@@ -105,27 +105,23 @@ body {
 }
 
 .offerings {
-    background: #549E39;
+    background: #549e39;
     padding: 6px 15px;
-
+    margin-right: 10px;
 }
-
-
 
 /* BUNDLES */
 .bundles {
-    padding: 60px;
+    padding: 20px;
     background: #0e6fa8;
     text-align: center;
-    background: linear-gradient(
-        rgba(0,0,0,0.1),
-        rgba(0,0,0,0.1)
-    ),
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
         url("../bundlebg.png") center/cover;
 }
 
-.bundles h2{
-    font-family: 'Bebas Neue', sans-serif;
+.bundles h2 {
+    font-family: "Bebas Neue", sans-serif;
     font-size: 46px;
     letter-spacing: 10%;
     text-shadow: -5px 5px 0 rgba(255, 255, 255, 0.25);
@@ -134,43 +130,57 @@ body {
 .bundle-cards {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
+    gap: 14px;
+    margin-top: 20px;
 }
 
 .card {
-    background: url("../card1.png");
-    background-size: cover;
-    padding: 10px;
-    padding-bottom: 30px;
+    background: #06669B;
+    /*padding: 8px;*/
+    padding-bottom: 15px;
     border-radius: 40px;
-    width: 465px;
+    width: 550px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .card h3 {
-    margin-bottom: 8px;
-    font-size: 33px;
+    margin-bottom: 4px;
+    font-size: 20px;
+    margin-top: 12px;
 }
 
-.price {
+.price h3 {
     font-weight: 600;
     margin-bottom: 20px;
 }
 
+
 .card ul {
     list-style: none;
     margin-bottom: 25px;
+    padding: 6px;
 }
 
 .card li {
     margin: 8px 0;
-    font-size: 32px;
+    font-size: 16px;
 }
 
-.premium {
-    background: url("../card2.png");
-    background-size: cover;
+.card-header {
+    background: rgba(255, 255, 255, 0.45);
 }
+
+.card-body {
+    flex: 1;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: center;
+}
+
 
 /* TESTIMONIALS */
 .testimonials {
@@ -190,53 +200,30 @@ body {
     margin-top: 10px;
 }
 
-.who-section {
-    position: relative;
-    height: 280px;
-    background:
-        linear-gradient(rgba(0, 145, 204, 0.85), rgba(0, 145, 204, 0.85)),
-        url("../ocean.jpg") center / cover no-repeat;
-    overflow: hidden;
-}
-
-/* curved darker shape */
-.who-section::before {
-    content: "";
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 65%;
-    height: 200%;
-    background: #0077a8;
-    border-top-right-radius: 300px;
-    border-bottom-right-radius: 300px;
-}
-
 /* content layout */
 .who-content {
     position: relative;
+    background: #0086D0;
     z-index: 2;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 15px;
+    padding: 15px 15px;
 }
 
 /* left title */
 .who-content h2 {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: "Bebas Neue", sans-serif;
     font-size: 46px;
     letter-spacing: 12%;
     text-shadow: -5px 5px 0 rgba(255, 255, 255, 0.25);
-
 }
 
 /* right text */
 .who-content p {
     max-width: 50%;
     text-align: right;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.5;
 }
-

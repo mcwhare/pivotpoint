@@ -151,8 +151,8 @@ body {
 .card {
     background: url("../card1.png");
     background-size: cover;
-    padding: 10px;
-    padding-bottom: 30px;
+    /*padding: 10px;*/
+    /*padding-bottom: 30px;*/
     border-radius: 40px;
     width: 465px;
 }
