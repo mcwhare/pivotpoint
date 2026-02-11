@@ -67,7 +67,6 @@ body {
     text-shadow: -4px 4px 0 rgba(116, 116, 116, 0.54);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #606060;
-
 }
 
 .hero h1 span {
@@ -125,7 +124,6 @@ body {
 /* BUNDLES */
 .bundles {
     padding: 60px;
-    background: #0e6fa8;
     text-align: center;
     background: linear-gradient(
         rgba(0,0,0,0.1),
@@ -149,12 +147,14 @@ body {
 }
 
 .card {
-    background: url("../card1.png");
-    background-size: cover;
+    background: #06669B;
     /*padding: 10px;*/
     /*padding-bottom: 30px;*/
     border-radius: 40px;
     width: 465px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .card h3 {
@@ -177,9 +177,17 @@ body {
     font-size: 32px;
 }
 
-.premium {
-    background: url("../card2.png");
-    background-size: cover;
+.card-header {
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.card-body {
+    flex: 1;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: center;
 }
 
 /* TESTIMONIALS */
@@ -203,9 +211,6 @@ body {
 .who-section {
     position: relative;
     height: 280px;
-    background:
-        linear-gradient(rgba(0, 145, 204, 0.85), rgba(0, 145, 204, 0.85)),
-        url("../ocean.jpg") center / cover no-repeat;
     overflow: hidden;
 }
 
@@ -217,7 +222,8 @@ body {
     top: 0px;
     width: 65%;
     height: 200%;
-    background: #0077a8;
+    background: #0A7D00;
+    z-index: 3;
     border-top-right-radius: 300px;
     border-bottom-right-radius: 300px;
 }
@@ -225,7 +231,7 @@ body {
 /* content layout */
 .who-content {
     position: relative;
-    z-index: 2;
+    background: #549E39;
     height: 100%;
     display: flex;
     align-items: center;
@@ -238,6 +244,7 @@ body {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 96px;
     letter-spacing: 12%;
+    z-index: 10;
     text-shadow: -5px 5px 0 rgba(255, 255, 255, 0.25);
 
 }
