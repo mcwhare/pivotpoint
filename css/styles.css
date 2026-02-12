@@ -14,7 +14,7 @@ h1, h2, h3 {
 
 body {
     color: #fff;
-    background: #0e6fa8;
+    background: #FFDAAE;
 }
 
 /* NAVBAR */
@@ -44,11 +44,7 @@ body {
 /* HERO */
 .hero {
     height: 900px;
-    background: linear-gradient(
-        rgba(0,0,0,0.1),
-        rgba(0,0,0,0.1)
-    ),
-        url("../hero.png") center/cover;
+    background: url("../hero.png") center/cover;
     display: flex;
     background-attachment: fixed;
 /*    align-items: center;*/
@@ -94,13 +90,12 @@ body {
 }
 
 .explore {
-    color: #white;
-
+    color: white;
 }
 
 .secondary {
-    background: #38c172;
-    color: #003b5c;
+    background: #0086D0;
+    color: white;
 }
 
 .offerings {
@@ -125,11 +120,7 @@ body {
 .bundles {
     padding: 60px;
     text-align: center;
-    background: linear-gradient(
-        rgba(0,0,0,0.1),
-        rgba(0,0,0,0.1)
-    ),
-        url("../bundlebg.png") center/cover;
+    background: url("../bundlebg.png") center/cover;
 }
 
 .bundles h2{
@@ -147,7 +138,7 @@ body {
 }
 
 .card {
-    background: #06669B;
+    background: #549E39;
     /*padding: 10px;*/
     /*padding-bottom: 30px;*/
     border-radius: 40px;
@@ -165,6 +156,10 @@ body {
 .price {
     font-weight: 600;
     margin-bottom: 20px;
+}
+
+.premium {
+    background-color: #63AA49;
 }
 
 .card ul {
@@ -195,12 +190,23 @@ body {
     display: flex;
     justify-content: space-around;
     padding: 50px;
-    background: #0b5c8a;
+    background: url(../testimonialbg.png);
+    background-size: cover;
+    color: black;
 }
 
 .testimonial {
-    max-width: 250px;
+    max-width: 400px;
     font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.34);
+    border: 2px solid grey;
+    padding: 10px;
+    border-radius: 30px;
+    backdrop-filter: blur(25px);
+}
+
+testimonials name{
+    color: rgba(56, 56, 56, 1);
 }
 
 .testimonial strong {
