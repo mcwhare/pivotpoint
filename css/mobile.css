@@ -18,7 +18,7 @@ h3 {
 
 body {
     color: #fff;
-    background: #549E39;
+    background: #FFDAAE;
 }
 
 /* NAVBAR */
@@ -145,7 +145,7 @@ body {
 
 .card h3 {
     margin-bottom: 4px;
-    font-size: 20px;
+    font-size: 32px;
     margin-top: 12px;
     text-shadow: -2px 2px 0 rgba(255, 255, 255, 0.25);
 }
@@ -158,13 +158,13 @@ body {
 
 .card ul {
     list-style: none;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     padding: 6px;
 }
 
 .card li {
     margin: 8px 0;
-    font-size: 16px;
+    font-size: 22px;
 }
 
 .card-header {
@@ -239,4 +239,15 @@ testimonials name{
     text-align: right;
     font-size: 18px;
     line-height: 1.5;
+}
+
+.faq {
+    color: black;
+}
+
+.faq h1 {
+    font-size: 96px;
+    letter-spacing: 10%;
+    align-content: center;
+    width: 100%;
 }
