@@ -51,7 +51,7 @@ body {
     height: 800px;
     background:
         linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-        url("../hero.png") center/cover;
+        url("../hero-comp.webp") center/cover;
     display: flex;
     background-attachment: fixed;
     /*    align-items: center;*/
