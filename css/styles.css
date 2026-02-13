@@ -1,9 +1,13 @@
-body, p, li {
-    font-family: 'Roboto', sans-serif;
+body,
+p,
+li {
+    font-family: "Roboto", sans-serif;
 }
 
-h1, h2, h3 {
-    font-family: 'Bebas Neue', sans-serif;
+h1,
+h2,
+h3 {
+    font-family: "Bebas Neue", sans-serif;
 }
 
 * {
@@ -14,7 +18,7 @@ h1, h2, h3 {
 
 body {
     color: #fff;
-    background: #FFDAAE;
+    background: #ffdaae;
 }
 
 /* NAVBAR */
@@ -27,7 +31,7 @@ body {
     z-index: 10;
 }
 .navlink {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .navbar a {
@@ -48,7 +52,7 @@ body {
     background: url("../hero.png") center/cover;
     display: flex;
     background-attachment: fixed;
-/*    align-items: center;*/
+    /*    align-items: center;*/
 }
 
 .hero-content {
@@ -67,9 +71,9 @@ body {
 }
 
 .hero h1 span {
-    color: #0DA9FF;
+    color: #0da9ff;
     text-decoration: underline;
-    text-decoration-color: #0DA9FF;
+    text-decoration-color: #0da9ff;
 }
 
 .hero p {
@@ -85,9 +89,9 @@ body {
     font-weight: 600;
     text-decoration: none;
     display: inline-block;
-    background: #549E39;
+    background: #549e39;
     font-size: em;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: "Bebas Neue", sans-serif;
 }
 
 .explore {
@@ -95,14 +99,13 @@ body {
 }
 
 .secondary {
-    background: #0086D0;
+    background: #0086d0;
     color: white;
 }
 
 .offerings {
-    background: #549E39;
+    background: #549e39;
     padding: 6px 15px;
-
 }
 
 /* WHO WE ARE */
@@ -124,8 +127,8 @@ body {
     background: url("../bundlebg.png") center/cover;
 }
 
-.bundles h2{
-    font-family: 'Bebas Neue', sans-serif;
+.bundles h2 {
+    font-family: "Bebas Neue", sans-serif;
     font-size: 96px;
     letter-spacing: 10%;
     text-shadow: -5px 5px 0 rgba(255, 255, 255, 0.25);
@@ -139,7 +142,7 @@ body {
 }
 
 .card {
-    background: #549E39;
+    background: #549e39;
     /*padding: 10px;*/
     /*padding-bottom: 30px;*/
     border-radius: 40px;
@@ -161,7 +164,7 @@ body {
 }
 
 .premium {
-    background-color: #63AA49;
+    background-color: #63aa49;
 }
 
 .card ul {
@@ -180,7 +183,6 @@ body {
 
 .card-body {
     flex: 1;
-
 }
 
 .card-footer {
@@ -209,7 +211,7 @@ body {
     backdrop-filter: blur(25px);
 }
 
-testimonials name{
+testimonials name {
     color: rgba(56, 56, 56, 1);
 }
 
@@ -232,7 +234,7 @@ testimonials name{
     top: 0px;
     width: 65%;
     height: 200%;
-    background: #0A7D00;
+    background: #0a7d00;
     z-index: 3;
     border-top-right-radius: 300px;
     border-bottom-right-radius: 300px;
@@ -241,7 +243,7 @@ testimonials name{
 /* content layout */
 .who-content {
     position: relative;
-    background: #549E39;
+    background: #549e39;
     height: 100%;
     display: flex;
     align-items: center;
@@ -251,12 +253,11 @@ testimonials name{
 
 /* left title */
 .who-content h2 {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: "Bebas Neue", sans-serif;
     font-size: 96px;
     letter-spacing: 12%;
     z-index: 10;
     text-shadow: -5px 5px 0 rgba(255, 255, 255, 0.25);
-
 }
 
 /* right text */
