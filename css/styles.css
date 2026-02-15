@@ -222,7 +222,7 @@ testimonials name {
 
 .who-section {
     position: relative;
-    height: 280px;
+    height: 300px;
     overflow: hidden;
 }
 
@@ -266,6 +266,7 @@ testimonials name {
     text-align: right;
     font-size: 32px;
     line-height: 1.5;
+    z-index: 15;
 }
 
 .faq {

@@ -1,0 +1,650 @@
+/* ===============================
+   DESKTOP CSS (BASE)
+================================= */
+
+body,
+p,
+li {
+    font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #fff;
+    background: #ffdaae;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+
+.navlink {
+    font-family: "Roboto", sans-serif;
+}
+
+.navbar a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 32px;
+}
+
+.logo {
+    font-weight: 700;
+    width: 250px;
+}
+
+/* HERO */
+.hero {
+    height: 900px;
+    background: url("../hero.png") center/cover;
+    display: flex;
+    background-attachment: fixed;
+}
+
+.hero-content {
+    padding-left: 80px;
+    max-width: 2000px;
+}
+
+.hero h1 {
+    padding-top: 180px;
+    font-size: 96px;
+    font-weight: 600;
+    letter-spacing: 10%;
+    text-shadow: -4px 4px 0 rgba(116, 116, 116, 0.54);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #606060;
+}
+
+.hero h1 span {
+    color: #0da9ff;
+    text-decoration: underline;
+    text-decoration-color: #0da9ff;
+}
+
+.hero p {
+    margin: 15px 0 25px;
+    font-size: 40px;
+    text-shadow: -4px 4px 4 rgba(0, 0, 0, 0.25);
+}
+
+/* BUTTONS */
+.btn {
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    background: #549e39;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.explore {
+    color: white;
+}
+
+.secondary {
+    background: #0086d0;
+    color: white;
+}
+
+.offerings {
+    background: #549e39;
+    padding: 6px 15px;
+}
+
+/* WHO WE ARE */
+.who-we-are {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background: #0b5c8a;
+    padding: 60px;
+}
+
+.who-we-are h2 {
+    font-size: 2.2rem;
+}
+
+/* BUNDLES */
+.bundles {
+    padding: 60px;
+    text-align: center;
+    background: url("../bundlebg.png") center/cover;
+}
+
+.bundles h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 96px;
+    letter-spacing: 10%;
+    text-shadow: -5px 5px 0 rgba(255, 255, 255, 0.25);
+}
+
+.bundle-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.card {
+    background: #549e39;
+    border-radius: 40px;
+    width: 465px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card h3 {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 33px;
+}
+
+.price {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.premium {
+    background-color: #63aa49;
+}
+
+.card ul {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.card li {
+    margin: 8px 8px;
+    font-size: 32px;
+}
+
+.card-header {
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.card-body {
+    flex: 1;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    background: url(../testimonialbg.png);
+    background-size: cover;
+    color: black;
+}
+
+.testimonial {
+    max-width: 550px;
+    font-size: 24px;
+    background-color: rgba(255, 255, 255, 0.34);
+    border: 2px solid grey;
+    padding: 10px;
+    border-radius: 30px;
+    backdrop-filter: blur(25px);
+}
+
+testimonials name {
+    color: rgba(56, 56, 56, 1);
+}
+
+.testimonial strong {
+    display: block;
+    margin-top: 10px;
+}
+
+.who-section {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.who-section::before {
+    content: "";
+    position: absolute;
+    left: -200px;
+    top: 0px;
+    width: 65%;
+    height: 200%;
+    background: #0a7d00;
+    z-index: 3;
+    border-top-right-radius: 300px;
+    border-bottom-right-radius: 300px;
+}
+
+.who-content {
+    position: relative;
+    background: #549e39;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+}
+
+.who-content h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 96px;
+    letter-spacing: 12%;
+    z-index: 10;
+    text-shadow: -5px 5px 0 rgba(255, 255, 255, 0.25);
+}
+
+.who-content p {
+    max-width: 50%;
+    text-align: right;
+    font-size: 32px;
+    line-height: 1.5;
+    z-index: 15;
+}
+
+.faq {
+    width: 80%;
+    margin: 40px auto;
+    color: black;
+}
+
+.faq h1 {
+    text-align: center;
+    font-size: 96px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+.faq-item {
+    border-bottom: 4px solid black;
+    padding: 15px 0;
+}
+
+summary {
+    list-style: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+    transform: rotate(-135deg);
+}
+
+.faq-content {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-content p {
+    margin-top: 15px;
+}
+
+.footer {
+    justify-self: center;
+    color: black;
+    align-content: center;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* ===============================
+   MOBILE CSS
+================================= */
+
+@media (max-width: 768px) {
+    body,
+    p,
+    li {
+        font-family: "Roboto", sans-serif;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-family: "Bebas Neue", sans-serif;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        color: #fff;
+        background: #ffdaae;
+    }
+
+    /* NAVBAR */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 10px;
+        position: absolute;
+        width: 100%;
+        z-index: 10;
+    }
+    .navlink {
+        font-family: "Roboto", sans-serif;
+    }
+
+    .navbar a {
+        color: white;
+        margin-left: 10px;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    .logo {
+        font-weight: 700;
+        width: 160px;
+    }
+
+    /* HERO */
+    .hero {
+        height: 800px;
+        background:
+            linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+            url("../hero-comp.webp") center/cover;
+        display: flex;
+        background-attachment: scroll;
+        /*    align-items: center;*/
+    }
+
+    .hero-content {
+        padding-left: 20px;
+    }
+
+    .hero h1 {
+        padding-top: 180px;
+        font-size: 56px;
+        font-weight: 600;
+        letter-spacing: 10%;
+        text-shadow: -4px 4px 0 rgba(116, 116, 116, 0.54);
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #606060;
+        /*-webkit-text-stroke: 0;*/
+
+        /* Softer shadow instead */
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero h1 span {
+        color: #0da9ff;
+        text-decoration: underline;
+        text-decoration-color: #0da9ff;
+    }
+
+    .hero p {
+        margin: 15px 0 25px;
+        font-size: 32px;
+        text-shadow: -4px 4px 4 rgba(0, 0, 0, 0.25);
+    }
+
+    /* BUTTONS */
+    .btn {
+        padding: 15px 30px;
+        border-radius: 40px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        background: #549e39;
+        font-size: 32px;
+        font-family: "Bebas Neue", sans-serif;
+    }
+
+    .explore {
+        color: #ffffff;
+        font-size: 36px;
+    }
+
+    .secondary {
+        background: #0086d0;
+        color: white;
+    }
+
+    .offerings {
+        background: #549e39;
+        padding: 6px 15px;
+        margin-right: 10px;
+    }
+
+    /* BUNDLES */
+    .bundles {
+        padding: 20px;
+        padding-bottom: 50px;
+        background: #0e6fa8;
+        text-align: center;
+        background: url("../bundlebg.png") center/cover;
+    }
+
+    .bundles h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 66px;
+        letter-spacing: 10%;
+        text-shadow: -5px 5px 0 rgba(255, 255, 255, 0.25);
+    }
+
+    .bundle-cards {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        margin-top: 20px;
+    }
+
+    .card {
+        background: #549e39;
+        /*padding: 8px;*/
+        padding-bottom: 15px;
+        border-radius: 25px;
+        width: 550px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card h3 {
+        margin-bottom: 4px;
+        font-size: 32px;
+        margin-top: 12px;
+        text-shadow: -2px 2px 0 rgba(255, 255, 255, 0.25);
+    }
+
+    .price h3 {
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .card ul {
+        list-style: none;
+        margin-bottom: 5px;
+        padding: 6px;
+    }
+
+    .card li {
+        margin: 8px 0;
+        font-size: 28px;
+    }
+
+    .card-header {
+        background: rgba(255, 255, 255, 0.45);
+    }
+
+    .card-body {
+        flex: 1;
+    }
+
+    .card-footer {
+        display: flex;
+        justify-content: center;
+    }
+
+    .premium {
+        background-color: #63aa49;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+        display: flex;
+        justify-content: space-around;
+        padding: 50px;
+        background: url(../testimonialbg.png);
+        background-size: cover;
+        color: black;
+    }
+
+    .testimonial {
+        max-width: 450px;
+        font-size: 28px;
+        background-color: rgba(255, 255, 255, 0.34);
+        border: 2px solid grey;
+        padding: 10px;
+        border-radius: 20px;
+        backdrop-filter: blur(25px);
+    }
+
+    testimonials name {
+        color: rgba(56, 56, 56, 1);
+    }
+
+    .testimonial strong {
+        display: block;
+        margin-top: 10px;
+    }
+
+    /* content layout */
+    .who-content {
+        position: relative;
+        background: #549e39;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 15px;
+    }
+
+    /* left title */
+    .who-content h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 66px;
+        letter-spacing: 12%;
+        text-shadow: -5px 5px 0 rgba(255, 255, 255, 0.25);
+    }
+
+    /* right text */
+    .who-content p {
+        max-width: 50%;
+        text-align: right;
+        font-size: 26px;
+        line-height: 1.5;
+    }
+
+    .faq {
+        width: 80%;
+        margin: 80px auto;
+        color: black;
+    }
+
+    .faq h1 {
+        text-align: center;
+        font-size: 96px;
+        letter-spacing: 4px;
+        margin-bottom: 10px;
+    }
+
+    .faq-item {
+        border-bottom: 4px solid black;
+        padding: 15px 0;
+    }
+
+    summary {
+        list-style: none;
+        cursor: pointer;
+        font-size: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    /* Arrow */
+    summary::after {
+        content: "";
+        width: 12px;
+        height: 12px;
+        border-right: 3px solid black;
+        border-bottom: 3px solid black;
+        transform: rotate(45deg);
+        transition: transform 0.3s ease;
+    }
+
+    details[open] summary::after {
+        transform: rotate(-135deg);
+    }
+
+    /* Content animation base */
+    .faq-content {
+        overflow: hidden;
+        height: 0;
+        transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .faq-content p {
+        margin-top: 15px;
+    }
+
+    .footer {
+        justify-self: center;
+        color: black;
+        align-content: center;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
