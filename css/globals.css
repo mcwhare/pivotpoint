@@ -198,12 +198,15 @@ body {
 }
 
 /* TESTIMONIALS */
+.testimonials-wrapper {
+    background: url(../testimonialbg.png);
+    background-size: cover;
+    padding: 30px;
+}
+
 .testimonials {
     display: flex;
     justify-content: space-around;
-    padding: 50px;
-    background: url(../testimonialbg.png);
-    background-size: cover;
     color: black;
 }
 
@@ -215,6 +218,8 @@ body {
     padding: 10px;
     border-radius: 30px;
     backdrop-filter: blur(25px);
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 testimonials name {
@@ -531,24 +536,51 @@ details[open] summary::after {
         background-color: #63aa49;
     }
 
-    /* TESTIMONIALS */
-    .testimonials {
-        display: flex;
-        justify-content: space-around;
-        padding: 50px;
+    /* TESTIMONIALS - HORIZONTAL SCROLLING */
+    .testimonials-wrapper {
         background: url(../testimonialbg.png);
         background-size: cover;
+        padding: 20px 0;
+    }
+
+    .testimonials {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 20px;
+        padding: 0 10px 20px 10px;
         color: black;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Scrollbar styling for better UX */
+    .testimonials::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .testimonials::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        margin: 0 10px;
+    }
+
+    .testimonials::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
     }
 
     .testimonial {
-        max-width: 450px;
-        font-size: 28px;
+        min-width: 85%;
+        max-width: 440px;
+        font-size: 22px;
         background-color: rgba(255, 255, 255, 0.34);
         border: 2px solid grey;
         padding: 10px;
         border-radius: 20px;
         backdrop-filter: blur(25px);
+        flex-shrink: 0;
+        scroll-snap-align: center;
     }
 
     testimonials name {
