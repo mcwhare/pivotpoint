@@ -152,7 +152,7 @@ body {
 .card {
     background: #549e39;
     border-radius: 40px;
-    width: 465px;
+    width: 485px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -184,6 +184,7 @@ body {
 }
 
 .card-header {
+    padding-top: 5px;
     background: rgba(255, 255, 255, 0.45);
     /*-webkit-text-stroke: 1px #9F9F9F;*/
 }
