@@ -175,13 +175,17 @@ body {
 }
 
 .card ul {
-    list-style: none;
     margin-bottom: 25px;
+    list-style-type: disc;
+    padding-left: 25px;
+    text-align: left;
 }
 
 .card li {
     margin: 8px 8px;
     font-size: 32px;
+    list-style-type: disc;
+    margin-bottom: 8px;
 }
 
 .card-header {
@@ -528,7 +532,7 @@ details[open] summary::after {
     }
 
     .card ul {
-        list-style: none;
+        list-style: disc;
         margin-bottom: 5px;
         padding: 6px;
     }
