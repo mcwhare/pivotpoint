@@ -153,7 +153,7 @@ body {
 .card {
     background: #549e39;
     border-radius: 40px;
-    width: 485px;
+    width: 500px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
