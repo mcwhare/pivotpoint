@@ -79,6 +79,7 @@ body {
 /* ── Hero background ─────────────────────────────────────── */
 .hero {
     background: linear-gradient(160deg, #ffffff 0%, #eef6e8 50%, #fdf6ee 100%);
+    background: url("../hero.png") center/cover;
 }
 
 .hero-blob-1 {
