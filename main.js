@@ -1,28 +1,38 @@
+// ── Mobile nav toggle ───────────────────────────────────────
+const navToggle = document.getElementById("nav-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
+
+navToggle.addEventListener("click", () => {
+  const isOpen = mobileMenu.classList.contains("open");
+  mobileMenu.classList.toggle("open");
+  navToggle.classList.toggle("open");
+});
+
+// Close mobile menu when a link is tapped
+document.querySelectorAll(".mobile-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.remove("open");
+    navToggle.classList.remove("open");
+  });
+});
+
 // ── FAQ Accordion ──────────────────────────────────────────
-const faqItems = document.querySelectorAll('.faq-item');
+const faqItems = document.querySelectorAll(".faq-item");
 
-faqItems.forEach(item => {
-  const trigger = item.querySelector('.faq-q');
-
-  trigger.addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-
-    // Close all items
-    faqItems.forEach(i => i.classList.remove('open'));
-
-    // Open clicked item if it wasn't already open
-    if (!isOpen) {
-      item.classList.add('open');
-    }
+faqItems.forEach((item) => {
+  item.querySelector(".faq-q").addEventListener("click", () => {
+    const isOpen = item.classList.contains("open");
+    faqItems.forEach((i) => i.classList.remove("open"));
+    if (!isOpen) item.classList.add("open");
   });
 });
 
 // ── Scroll Reveal ───────────────────────────────────────────
 const revealObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
+  (entries) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        entry.target.classList.add("visible");
         revealObserver.unobserve(entry.target);
       }
     });
@@ -30,15 +40,15 @@ const revealObserver = new IntersectionObserver(
   { threshold: 0.1 }
 );
 
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
 // ── Nav scroll shadow ───────────────────────────────────────
-const nav = document.querySelector('nav');
+const nav = document.querySelector("nav");
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 10) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
-  }
-}, { passive: true });
+window.addEventListener(
+  "scroll",
+  () => {
+    nav.classList.toggle("scrolled", window.scrollY > 10);
+  },
+  { passive: true }
+);

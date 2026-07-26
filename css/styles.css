@@ -79,7 +79,6 @@ body {
 /* ── Hero background ─────────────────────────────────────── */
 .hero {
     background: linear-gradient(160deg, #ffffff 0%, #eef6e8 50%, #fdf6ee 100%);
-    /*background: url("../hero.png") center/cover;*/
 }
 
 .hero-blob-1 {
@@ -209,53 +208,58 @@ nav.scrolled {
 
 /* ── Testimonial carousel ────────────────────────────────── */
 .testimonials-track {
-  position: relative;
-  /* Overflow hidden clips the fade overlays cleanly */
-  overflow: hidden;
+    position: relative;
+    /* Overflow hidden clips the fade overlays cleanly */
+    overflow: hidden;
 }
 
 .testimonials-scroll {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding: 8px 48px 24px;
-  /* Hide scrollbar visually but keep it functional */
-  scrollbar-width: none;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 48px 24px;
+    /* Hide scrollbar visually but keep it functional */
+    scrollbar-width: none;
+    justify-content: center;
 }
 .testimonials-scroll::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .tcard {
-  /* Fixed width so cards peek into view */
-  flex: 0 0 360px;
-  scroll-snap-align: start;
-  transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+    /* Fixed width so cards peek into view */
+    flex: 0 0 360px;
+    scroll-snap-align: start;
+    transition:
+        box-shadow 0.25s,
+        transform 0.25s,
+        border-color 0.25s;
 }
 .tcard:hover {
-  box-shadow: 0 4px 16px rgba(30,60,20,0.1);
-  transform: translateY(-4px);
-  border-color: var(--green);
+    box-shadow: 0 4px 16px rgba(30, 60, 20, 0.1);
+    transform: translateY(-4px);
+    border-color: var(--green);
 }
 
 /* Fade-out edges so it looks like more cards continue off-screen */
 .testimonials-fade-left,
 .testimonials-fade-right {
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 80px;
-  pointer-events: none;
-  z-index: 2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    pointer-events: none;
+    z-index: 2;
 }
 .testimonials-fade-left {
-  left: 0;
-  background: linear-gradient(to right, #ffffff, transparent);
+    left: 0;
+    background: linear-gradient(to right, #ffffff, transparent);
 }
 .testimonials-fade-right {
-  right: 0;
-  background: linear-gradient(to left, #ffffff, transparent);
+    right: 0;
+    background: linear-gradient(to left, #ffffff, transparent);
 }
 
 /* ── CTA strip background ────────────────────────────────── */
@@ -321,4 +325,46 @@ nav.scrolled {
 }
 .reveal:nth-child(4) {
     transition-delay: 0.24s;
+}
+
+/* ── Mobile responsive overrides ────────────────────────── */
+
+/* Tighter card width on small screens so cards are still peekable */
+@media (max-width: 640px) {
+    .tcard {
+        flex: 0 0 280px;
+    }
+
+    .testimonials-scroll {
+        padding: 8px 24px 24px;
+
+    }
+
+    .testimonials-fade-left,
+    .testimonials-fade-right {
+        width: 40px;
+    }
+}
+
+/* Mobile menu open state */
+#mobile-menu.open {
+    transform: translateY(0);
+}
+
+/* Hamburger → X when open */
+#nav-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+#nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+#nav-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+#nav-toggle span {
+    transform-origin: center;
+    transition:
+        transform 0.3s,
+        opacity 0.2s;
 }
