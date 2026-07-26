@@ -1,189 +1,582 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=0.8" />
-        <title>PivotPoint – Build Your Future</title>
-        <link rel="stylesheet" href="./css/globals.css" />
-        <link rel="icon" type="image/x-icon" href="./favicon.png" />
-        <!-- Mobile-specific styles for screens up to 700px wide -->
-        <!--<link rel="stylesheet" href="./css/mobile.css" type="text/css" media="screen and (max-width: 700px)" />-->
-        <!-- Desktop-specific styles for screens wider than 700px -->
-        <!--<link rel="stylesheet" href="./css/styles.css" type="text/css" media="screen and (min-width: 701px)" />-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PivotPoint — Build Your Future</title>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com" rel="stylesheet" />
-    </head>
-    <body>
-        <!-- NAVBAR -->
-        <header class="navbar">
-            <div class="logo"><img class="logo" src="PivotPointLogo.png" /></div>
-            <!--logo goes here-->
-            <nav>
-                <!--
-                <a class="navlink" href="#">About Us</a>
-                <a class="navlink" href="#">Sign In</a>
-                <a class="btn offerings">OFFERINGS</a>
-                -->
-            </nav>
-        </header>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              green: "#549E39",
+              "green-dark": "#0A7D00",
+              "green-light": "#e8f5e2",
+              "green-mid": "#c2e0b4",
+              accent: "#0DA9FF",
+              "accent-light": "#e0f4ff",
+              peach: "#FFDAAE",
+              "peach-dark": "#d4863a",
+              "peach-light": "#fff5ea",
+              grey: "#A9A9A9",
+              page: "#f7f9f5",
+              border: "#d8e8d0",
+              "border-mid": "#c0d8b4",
+              ink: "#1a2318",
+              "ink-muted": "#5a6e54",
+              "ink-dim": "#8ea386"
+            },
+            fontFamily: {
+              display: ['"Roboto Condensed"', "sans-serif"],
+              body: ["Roboto", "sans-serif"]
+            }
+          }
+        }
+      };
+    </script>
 
-        <!-- HERO -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>BUILD YOUR <span>FUTURE</span>.</h1>
-                <p>Reach full potential through holistic preparation.</p>
-                <a class="btn explore" href="#bundles">EXPLORE</a>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body class="bg-page text-ink font-body text-base leading-relaxed overflow-x-hidden">
+    <!-- ── NAV ────────────────────────────────────────────── -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 h-[64px] border-b border-border">
+      <a href="#" class="logo flex items-center no-underline">
+        <img src="PivotPointLogo.png" alt="PivotPoint" class="h-8 w-auto" />
+      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="hidden md:flex list-none items-center gap-8">
+        <li>
+          <a
+            href="#about"
+            class="text-ink-muted no-underline text-sm font-normal hover:text-green-dark transition-colors duration-200"
+            >About</a
+          >
+        </li>
+        <li>
+          <a
+            href="#offer"
+            class="text-ink-muted no-underline text-sm font-normal hover:text-green-dark transition-colors duration-200"
+            >Courses</a
+          >
+        </li>
+        <li>
+          <a
+            href="#testimonials"
+            class="text-ink-muted no-underline text-sm font-normal hover:text-green-dark transition-colors duration-200"
+            >Stories</a
+          >
+        </li>
+        <li>
+          <a
+            href="#faq"
+            class="text-ink-muted no-underline text-sm font-normal hover:text-green-dark transition-colors duration-200"
+            >FAQ</a
+          >
+        </li>
+        <li>
+          <a
+            href="#offer"
+            class="nav-cta bg-green text-white px-[22px] py-[9px] rounded-full text-sm font-medium no-underline">
+            Get started
+          </a>
+        </li>
+      </ul>
+
+      <!-- Mobile hamburger -->
+      <button id="nav-toggle" class="md:hidden flex flex-col gap-[5px] p-2 cursor-pointer bg-transparent border-none">
+        <span class="block w-6 h-0.5 bg-ink transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-ink transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-ink transition-all duration-300"></span>
+      </button>
+    </nav>
+
+    <!-- Mobile menu drawer -->
+    <div
+      id="mobile-menu"
+      class="fixed top-[64px] left-0 right-0 z-40 bg-white border-b border-border shadow-lg translate-y-[-110%] transition-transform duration-300 md:hidden">
+      <ul class="list-none flex flex-col px-6 py-4 gap-1">
+        <li>
+          <a
+            href="#about"
+            class="mobile-link block py-3 text-ink-muted no-underline text-base border-b border-border/50"
+            >About</a
+          >
+        </li>
+        <li>
+          <a
+            href="#offer"
+            class="mobile-link block py-3 text-ink-muted no-underline text-base border-b border-border/50"
+            >Courses</a
+          >
+        </li>
+        <li>
+          <a
+            href="#testimonials"
+            class="mobile-link block py-3 text-ink-muted no-underline text-base border-b border-border/50"
+            >Stories</a
+          >
+        </li>
+        <li><a href="#faq" class="mobile-link block py-3 text-ink-muted no-underline text-base">FAQ</a></li>
+        <li class="pt-3">
+          <a
+            href="#offer"
+            class="mobile-link block text-center bg-green text-white py-3 rounded-full text-sm font-medium no-underline">
+            Get started
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ── HERO ───────────────────────────────────────────── -->
+    <section
+      class="hero min-h-screen flex flex-col justify-center px-6 md:px-12 pt-[100px] pb-16 relative overflow-hidden">
+      <div
+        class="hero-blob-1 absolute -top-[120px] -right-[80px] w-[400px] md:w-[600px] h-[400px] md:h-[600px] rounded-full pointer-events-none"></div>
+      <div
+        class="hero-blob-2 absolute -bottom-[80px] -left-[100px] w-[300px] md:w-[500px] h-[300px] md:h-[500px] rounded-full pointer-events-none"></div>
+
+      <div class="relative max-w-[1200px] mx-auto w-full">
+        <h1 class="font-display font-extrabold text-ink mb-5">
+          Build your<br />
+          <span class="text-green">future.</span>
+        </h1>
+
+        <p class="hero-sub text-lg md:text-xl text-ink-muted font-light max-w-[520px] mb-9 leading-[1.65]">
+          Reach your full potential through holistic preparation.
+        </p>
+
+        <div class="hero-actions flex flex-col sm:flex-row items-start sm:items-center gap-3">
+          <a
+            href="#offer"
+            class="btn-primary inline-flex items-center gap-2 bg-green text-white px-7 py-3.5 rounded-full font-medium text-[15px] no-underline border-none cursor-pointer">
+            Start now
+            <svg
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4">
+              <path d="M3 8h10M9 4l4 4-4 4" />
+            </svg>
+          </a>
+          <a
+            href="#testimonials"
+            class="btn-ghost inline-flex items-center gap-2 bg-transparent text-ink-muted px-6 py-3.5 rounded-full text-[15px] no-underline border-[1.5px] border-border-mid cursor-pointer hover:border-accent hover:text-accent hover:bg-accent-light">
+            See student stories
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHO WE ARE ──────────────────────────────────────── -->
+    <section class="who bg-white py-16 md:py-24 px-6 md:px-12" id="about">
+      <div class="max-w-[1200px] mx-auto">
+        <div class="who-grid grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div class="reveal">
+            <p class="text-[12px] font-bold tracking-[0.1em] uppercase text-green mb-3">Who we are</p>
+            <h2 class="section-title font-display font-extrabold text-ink mb-4 leading-[1.1]">
+              Educators who've<br />been where you are.
+            </h2>
+            <p class="text-base md:text-[17px] text-ink-muted font-light max-w-[500px] mb-8 leading-[1.7]">
+              PivotPoint is built by successful educators and alumni who know exactly what it takes to land your first
+              role. We've distilled that experience into structured courses, real mentorship, and a community that has
+              your back.
+            </p>
+            <a
+              href="#offer"
+              class="btn-primary inline-flex items-center gap-2 bg-green text-white px-7 py-3.5 rounded-full font-medium text-[15px] no-underline border-none cursor-pointer">
+              Explore offerings
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-3.5 h-3.5">
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="pillars grid grid-cols-2 gap-3 md:gap-4 reveal">
+            <div class="pillar bg-page border border-border rounded-2xl p-4 md:p-6">
+              <div class="w-9 h-9 md:w-10 md:h-10 bg-green-light rounded-[10px] flex items-center justify-center mb-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#0A7D00" stroke-width="1.8" class="w-4 h-4 md:w-5 md:h-5">
+                  <path d="M12 20h9M12 4v16M3 12h9M7 8l-4 4 4 4" />
+                </svg>
+              </div>
+              <h4 class="font-display font-bold text-[13px] md:text-[15px] text-ink mb-1">Career Coaching</h4>
+              <p class="text-[12px] md:text-[13px] text-ink-muted leading-[1.55]">
+                One-on-one guidance from mentors who've navigated the same path.
+              </p>
             </div>
-        </section>
 
-        <!-- WHO WE ARE -->
-        <section class="who-section">
-            <div class="who-content">
-                <h2>WHO WE ARE</h2>
-                <p>
-                    Team of successful educators and alumni.<br />
-                    Courses to get you started in your career journey.
-                </p>
+            <div class="pillar bg-page border border-border rounded-2xl p-4 md:p-6">
+              <div class="w-9 h-9 md:w-10 md:h-10 bg-green-light rounded-[10px] flex items-center justify-center mb-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#0A7D00" stroke-width="1.8" class="w-4 h-4 md:w-5 md:h-5">
+                  <path d="M4 19.5A2.5 2.5 0 016.5 17H20M4 4.5A2.5 2.5 0 016.5 7H20v13H6.5A2.5 2.5 0 014 17.5v-13z" />
+                </svg>
+              </div>
+              <h4 class="font-display font-bold text-[13px] md:text-[15px] text-ink mb-1">Structured Courses</h4>
+              <p class="text-[12px] md:text-[13px] text-ink-muted leading-[1.55]">
+                Curriculum built to take you from uncertainty to offer letter.
+              </p>
             </div>
-        </section>
 
-        <!-- BUNDLES -->
-        <section class="bundles" id="bundles">
-            <h2>WHAT WE OFFER</h2>
+            <div class="pillar bg-page border border-border rounded-2xl p-4 md:p-6">
+              <div class="w-9 h-9 md:w-10 md:h-10 bg-green-light rounded-[10px] flex items-center justify-center mb-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#0A7D00" stroke-width="1.8" class="w-4 h-4 md:w-5 md:h-5">
+                  <path
+                    d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+                </svg>
+              </div>
+              <h4 class="font-display font-bold text-[13px] md:text-[15px] text-ink mb-1">Live Community</h4>
+              <p class="text-[12px] md:text-[13px] text-ink-muted leading-[1.55]">
+                Connect with peers and alumni navigating the same challenges.
+              </p>
+            </div>
 
-            <div class="bundle-cards">
-                <div class="card premium">
-                    <div class="card-header">
-                        <h3>THE UNIVERSITY BLUEPRINT</h3>
-                        <h3 class="price">$10 PER MONTH</h3>
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>
-                                Access to community chats.
-                            </li>
-                            <li>Access to courses and online resources.</li>
-                            <li>Monthly mentorship and guidance.</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://www.gokollab.com/about/pivotpoint-uni-success-bootcamp" class="btn secondary"
-                            >START NOW</a
-                        >
-                    </div>
+            <div class="pillar bg-page border border-border rounded-2xl p-4 md:p-6">
+              <div class="w-9 h-9 md:w-10 md:h-10 bg-green-light rounded-[10px] flex items-center justify-center mb-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#0A7D00" stroke-width="1.8" class="w-4 h-4 md:w-5 md:h-5">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
+              </div>
+              <h4 class="font-display font-bold text-[13px] md:text-[15px] text-ink mb-1">Real Results</h4>
+              <p class="text-[12px] md:text-[13px] text-ink-muted leading-[1.55]">
+                Students land internships and roles at top companies every cycle.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHAT WE OFFER ───────────────────────────────────── -->
+    <section class="offer bg-green-light py-16 md:py-24 px-6 md:px-12" id="offer">
+      <div class="max-w-[1200px] mx-auto">
+        <div class="offer-grid grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-[72px] items-start">
+          <!-- Pricing card -->
+          <div class="pricing-card bg-white border border-border rounded-3xl p-8 md:p-11 reveal">
+            <p class="text-[12px] font-bold tracking-[0.1em] uppercase text-green mb-2.5">Discord Access</p>
+            <div class="font-display font-extrabold text-[52px] md:text-[60px] text-ink leading-none mb-0.5">FREE</div>
+            <div class="text-sm text-ink-dim">&nbsp;</div>
+
+            <div class="h-px bg-border my-6 md:my-7"></div>
+
+            <ul class="list-none flex flex-col gap-3.5">
+              <li class="flex items-start gap-3 text-sm md:text-[15px] text-ink-muted">
+                <span class="flex-shrink-0 mt-0.5 w-5 h-5 bg-green-light rounded-full flex items-center justify-center">
+                  <svg viewBox="0 0 12 12" fill="none" stroke="#0A7D00" stroke-width="2.5" class="w-[11px] h-[11px]">
+                    <path d="M2 6l3 3 5-5" />
+                  </svg>
+                </span>
+                Access to community chats and peer discussion
+              </li>
+              <li class="flex items-start gap-3 text-sm md:text-[15px] text-ink-muted">
+                <span class="flex-shrink-0 mt-0.5 w-5 h-5 bg-green-light rounded-full flex items-center justify-center">
+                  <svg viewBox="0 0 12 12" fill="none" stroke="#0A7D00" stroke-width="2.5" class="w-[11px] h-[11px]">
+                    <path d="M2 6l3 3 5-5" />
+                  </svg>
+                </span>
+                Library of courses and online resources
+              </li>
+              <li class="mt-2 text-sm md:text-[15px] text-ink-muted italic">
+                We are currently working on updating resources and courses. Check back later for updates!
+              </li>
+            </ul>
+
+            <div class="h-px bg-border my-6 md:my-7"></div>
+              <!--href="https://auth.pivotpointeducation.com.au/auth/discord/discord"-->
+            <a
+              class="btn-primary flex items-center justify-center gap-2 bg-grey text-white w-full py-3.5 rounded-xl font-medium text-[15px] no-underline border-none cursor-pointer">
+              Coming soon!
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-3.5 h-3.5">
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Text side -->
+          <div class="offer-text-side pt-0 md:pt-2 reveal">
+            <p class="text-[12px] font-bold tracking-[0.1em] uppercase text-green mb-3">What we offer</p>
+            <h2 class="section-title font-display font-extrabold text-ink mb-4 leading-[1.1]">Everything you need.</h2>
+            <p class="text-base md:text-[17px] text-ink-muted font-light max-w-[500px] mb-8 md:mb-10 leading-[1.7]">
+              Membership unlocks the full experience — courses, community, and 1 on 1 feedback sessions with our
+              industry professionals.
+            </p>
+
+            <div class="offer-promises flex flex-col gap-6 md:gap-7">
+              <div class="promise flex gap-4 md:gap-[18px] items-start">
+                <span
+                  class="flex-shrink-0 mt-0.5 text-[13px] font-extrabold text-accent bg-accent-light px-[9px] py-[3px] rounded-full font-display"
+                  >01</span
+                >
+                <div>
+                  <h4 class="font-display font-bold text-base text-ink mb-1">Learn at your pace</h4>
+                  <p class="text-sm text-ink-muted font-light">
+                    Self-paced modules you can work through around lectures, exams, and life.
+                  </p>
                 </div>
-            </div>
-        </section>
-
-        <!-- TESTIMONIALS -->
-        <section class="testimonials-wrapper">
-            <div class="testimonials">
-                <div class="testimonial">
-                    <img class="quotes" src="quotes.png" />
-                    <p>
-                        I was struggling to secure an internship with most major companies already closed, but Keith’s
-                        actionable coaching helped me land four offers within a month and he was incredibly easy to work
-                        with throughout.
-                    </p>
-
-                    <strong class="name">Max C</strong>
-                    <span class="name">Commerce student</span>
+              </div>
+              <div class="promise flex gap-4 md:gap-[18px] items-start">
+                <span
+                  class="flex-shrink-0 mt-0.5 text-[13px] font-extrabold text-accent bg-accent-light px-[9px] py-[3px] rounded-full font-display"
+                  >02</span
+                >
+                <div>
+                  <h4 class="font-display font-bold text-base text-ink mb-1">Get real feedback</h4>
+                  <p class="text-sm text-ink-muted font-light">
+                    Your documents reviewed by mentors with direct industry experience.
+                  </p>
                 </div>
-
-                <div class="testimonial">
-                    <img class="quotes" src="quotes.png" />
-                    <p>
-                        As an interstate student, uni felt overwhelming without friends for guidance, but PivotPoint’s
-                        mentors and community answered every question and made the transition far more confident and
-                        manageable.
-                    </p>
-
-                    <strong class="name">Chong Chong Y</strong>
-                    <span class="name">Marketing student</span>
+              </div>
+              <div class="promise flex gap-4 md:gap-[18px] items-start">
+                <span
+                  class="flex-shrink-0 mt-0.5 text-[13px] font-extrabold text-accent bg-accent-light px-[9px] py-[3px] rounded-full font-display"
+                  >03</span
+                >
+                <div>
+                  <h4 class="font-display font-bold text-base text-ink mb-1">Like-minded Community</h4>
+                  <p class="text-sm text-ink-muted font-light">
+                    Join our community of highly motivated and engaging students.
+                  </p>
                 </div>
-
-                <div class="testimonial">
-                    <img class="quotes" src="quotes.png" />
-                    <p>
-                        Collaborating with Keith transformed my entire application approach, sharpening my language and
-                        turning my résumé and cover letter into commercially compelling documents shaped by his direct
-                        guidance and industry backed insights.
-                    </p>
-
-                    <strong class="name">Isaac B</strong>
-                    <span class="name">Finance student</span>
-                </div>
-
-                <div class="testimonial">
-                    <img class="quotes" src="quotes.png" />
-                    <p>
-                        Keith has been an incredible mentor whose leadership, generosity, and genuine support have
-                        inspired me since my first days at university
-                    </p>
-
-                    <strong class="name">Christian F</strong>
-                    <span class="name">Accounting student</span>
-                </div>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <section class="faq">
-            <h1>FAQ</h1>
+    <!-- ── TESTIMONIALS ────────────────────────────────────── -->
+    <section class="testimonials bg-white py-16 md:py-24" id="testimonials">
+      <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+        <p class="reveal text-[12px] font-bold tracking-[0.1em] uppercase text-green mb-3">Student stories</p>
+        <h2 class="section-title reveal font-display font-extrabold text-ink mb-10 md:mb-12 leading-[1.1]">
+          Real students.<br />Real results.
+        </h2>
+      </div>
 
-            <div class="faq-item">
-                <details>
-                    <summary>What will I learn in these courses?</summary>
-                    <div class="faq-content">
-                        <p>
-                            The hidden tools to build your career early in uni, like soft skills, how to apply for jobs,
-                            etc.
-                        </p>
-                    </div>
-                </details>
+      <div class="testimonials-track">
+        <div class="testimonials-scroll">
+          <div class="tcard bg-page border border-border rounded-2xl p-6 md:p-7">
+            <div class="text-[36px] font-display font-black text-peach-dark leading-none mb-2.5">"</div>
+            <p class="text-sm text-ink-muted leading-[1.65] mb-5">
+              I was struggling to secure an internship with most major companies already closed, but Keith's actionable
+              coaching helped me land four offers within a month. He was incredibly easy to work with throughout.
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-9 h-9 rounded-full bg-accent-light border border-accent/25 flex items-center justify-center font-display font-extrabold text-xs text-accent flex-shrink-0">
+                MC
+              </div>
+              <div>
+                <div class="text-[13px] font-medium text-ink">Max C.</div>
+                <div class="text-xs text-ink-dim">Commerce student</div>
+              </div>
             </div>
-            <div class="faq-item">
-                <details>
-                    <summary>How is the course structured?</summary>
-                    <div class="faq-content">
-                        <p>
-                            Courses are split into daily modules and interactive sections. You can also interact with
-                            other learners via our community.
-                        </p>
-                    </div>
-                </details>
-            </div>
-            <div class="faq-item">
-                <details>
-                    <summary>Can I contact the instructor directly?</summary>
-                    <div class="faq-content">
-                        <p>
-                            100%. Reach out to us via email at info@pivotpointeducation.com.au, or through the GoKollab
-                            community.
-                        </p>
-                    </div>
-                </details>
-            </div>
-            <div class="faq-item">
-                <details>
-                    <summary>Will this course help me get an internship or job?</summary>
-                    <div class="faq-content">
-                        <p>This course doesn't guarantee, but maximises the likelihood of getting a your dream role.</p>
-                    </div>
-                </details>
-            </div>
-        </section>
+          </div>
 
-        <section class="footer">
-            <img src="PivotPointLogo.png" />
+          <div class="tcard bg-page border border-border rounded-2xl p-6 md:p-7">
+            <div class="text-[36px] font-display font-black text-peach-dark leading-none mb-2.5">"</div>
+            <p class="text-sm text-ink-muted leading-[1.65] mb-5">
+              As an interstate student, uni felt overwhelming without friends for guidance. PivotPoint's mentors and
+              community answered every question and made the transition far more confident and manageable.
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-9 h-9 rounded-full bg-accent-light border border-accent/25 flex items-center justify-center font-display font-extrabold text-xs text-accent flex-shrink-0">
+                CY
+              </div>
+              <div>
+                <div class="text-[13px] font-medium text-ink">Chong Chong Y.</div>
+                <div class="text-xs text-ink-dim">Marketing student</div>
+              </div>
+            </div>
+          </div>
 
-            <p>ABN: 34 260 349 033</p>
-            <p>PivotPoint Education © 2026</p>
-            <br />
-            <p>Contact us: info@pivotpointeducation.com.au</p>
-        </section>
+          <div class="tcard bg-page border border-border rounded-2xl p-6 md:p-7">
+            <div class="text-[36px] font-display font-black text-peach-dark leading-none mb-2.5">"</div>
+            <p class="text-sm text-ink-muted leading-[1.65] mb-5">
+              Collaborating with Keith transformed my entire application approach. He sharpened my language and turned
+              my résumé and cover letter into commercially compelling documents shaped by real industry insight.
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-9 h-9 rounded-full bg-accent-light border border-accent/25 flex items-center justify-center font-display font-extrabold text-xs text-accent flex-shrink-0">
+                IB
+              </div>
+              <div>
+                <div class="text-[13px] font-medium text-ink">Isaac B.</div>
+                <div class="text-xs text-ink-dim">Finance student</div>
+              </div>
+            </div>
+          </div>
 
-        <script src="scripts.js"></script>
-    </body>
+          <div class="tcard bg-page border border-border rounded-2xl p-6 md:p-7">
+            <div class="text-[36px] font-display font-black text-peach-dark leading-none mb-2.5">"</div>
+            <p class="text-sm text-ink-muted leading-[1.65] mb-5">
+              Keith has been an incredible mentor whose leadership, generosity, and genuine support have inspired me
+              since my first days at university.
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-9 h-9 rounded-full bg-accent-light border border-accent/25 flex items-center justify-center font-display font-extrabold text-xs text-accent flex-shrink-0">
+                CF
+              </div>
+              <div>
+                <div class="text-[13px] font-medium text-ink">Christian F.</div>
+                <div class="text-xs text-ink-dim">Accounting student</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonials-fade-left"></div>
+        <div class="testimonials-fade-right"></div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ────────────────────────────────────────────── -->
+    <section class="faq bg-peach-light py-16 md:py-24 px-6 md:px-12" id="faq">
+      <div class="max-w-[720px] mx-auto">
+        <p class="reveal text-[12px] font-bold tracking-[0.1em] uppercase text-green mb-3 text-center">FAQ</p>
+        <h2 class="section-title reveal font-display font-extrabold text-ink mb-10 md:mb-12 leading-[1.1] text-center">
+          Common questions
+        </h2>
+
+        <div class="faq-list flex flex-col">
+          <div class="faq-item border-t border-peach-dark/20 overflow-hidden">
+            <div
+              class="faq-q flex justify-between items-center py-5 px-1 cursor-pointer text-base text-ink gap-4 select-none hover:text-green-dark transition-colors duration-200">
+              What will I learn in these courses?
+              <svg
+                class="faq-chevron flex-shrink-0 w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8ea386"
+                stroke-width="2">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </div>
+            <div class="faq-a px-1 text-[15px] text-ink-muted font-light leading-[1.7]">
+              Our curriculum covers the full career preparation journey — from self-assessment and industry research to
+              crafting compelling application documents, acing interviews, and negotiating offers. Content is tailored
+              to university students entering competitive industries like finance, consulting, marketing, and tech.
+            </div>
+          </div>
+
+          <div class="faq-item border-t border-peach-dark/20 overflow-hidden">
+            <div
+              class="faq-q flex justify-between items-center py-5 px-1 cursor-pointer text-base text-ink gap-4 select-none hover:text-green-dark transition-colors duration-200">
+              How is the course structured?
+              <svg
+                class="faq-chevron flex-shrink-0 w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8ea386"
+                stroke-width="2">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </div>
+            <div class="faq-a px-1 text-[15px] text-ink-muted font-light leading-[1.7]">
+              Courses are broken into short, focused modules you can complete in your own time. Each module builds on
+              the last, and you can revisit any lesson whenever you need to. Live elements like mentorship sessions and
+              community Q&As complement the self-paced content.
+            </div>
+          </div>
+
+          <div class="faq-item border-t border-peach-dark/20 overflow-hidden">
+            <div
+              class="faq-q flex justify-between items-center py-5 px-1 cursor-pointer text-base text-ink gap-4 select-none hover:text-green-dark transition-colors duration-200">
+              Can I contact the instructor directly?
+              <svg
+                class="faq-chevron flex-shrink-0 w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8ea386"
+                stroke-width="2">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </div>
+            <div class="faq-a px-1 text-[15px] text-ink-muted font-light leading-[1.7]">
+              Yes — monthly mentorship sessions give you direct access to Keith and the PivotPoint team. You can also
+              reach out through community channels between sessions for quick questions or document reviews.
+            </div>
+          </div>
+
+          <div class="faq-item border-t border-b border-peach-dark/20 overflow-hidden">
+            <div
+              class="faq-q flex justify-between items-center py-5 px-1 cursor-pointer text-base text-ink gap-4 select-none hover:text-green-dark transition-colors duration-200">
+              Will this course help me get an internship or job?
+              <svg
+                class="faq-chevron flex-shrink-0 w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8ea386"
+                stroke-width="2">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </div>
+            <div class="faq-a px-1 text-[15px] text-ink-muted font-light leading-[1.7]">
+              That's the goal. Our content is built entirely around practical outcomes — landing real roles, not just
+              collecting knowledge. Students who engage fully with mentorship and apply the frameworks consistently see
+              strong results in competitive application cycles.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ──────────────────────────────────────────── -->
+    <footer class="bg-ink py-8 md:py-11 px-6 md:px-12">
+      <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
+        <a href="#" class="footer-logo flex items-center no-underline">
+          <img src="PivotPointLogo.png" alt="PivotPoint" class="h-9 w-auto brightness-0 invert" />
+        </a>
+
+        <div class="flex flex-wrap justify-center gap-5 md:gap-7">
+          <a
+            href="#about"
+            class="text-[13px] text-white/50 no-underline hover:text-white/90 transition-colors duration-200"
+            >About</a
+          >
+          <a
+            href="#offer"
+            class="text-[13px] text-white/50 no-underline hover:text-white/90 transition-colors duration-200"
+            >Courses</a
+          >
+          <a
+            href="#faq"
+            class="text-[13px] text-white/50 no-underline hover:text-white/90 transition-colors duration-200"
+            >FAQ</a
+          >
+          <a href="#" class="text-[13px] text-white/50 no-underline hover:text-white/90 transition-colors duration-200"
+            >Contact</a
+          >
+        </div>
+
+        <p class="text-[13px] text-white/35 text-center md:text-left">© 2026 PivotPoint. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
 </html>
