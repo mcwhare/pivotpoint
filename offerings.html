@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PivotPoint — Courses & Offerings</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            green: "#549E39",
+                            "green-dark": "#0A7D00",
+                            "green-light": "#e8f5e2",
+                            "green-mid": "#c2e0b4",
+                            accent: "#0DA9FF",
+                            "accent-light": "#e0f4ff",
+                            peach: "#FFDAAE",
+                            "peach-dark": "#d4863a",
+                            "peach-light": "#fff5ea",
+                            page: "#f7f9f5",
+                            grey: "#A9A9A9",
+                            border: "#d8e8d0",
+                            "border-mid": "#c0d8b4",
+                            ink: "#1a2318",
+                            "ink-muted": "#5a6e54",
+                            "ink-dim": "#8ea386"
+                        },
+                        fontFamily: {
+                            display: ['"Roboto Condensed"', "sans-serif"],
+                            body: ["Roboto", "sans-serif"]
+                        }
+                    }
+                }
+            };
+        </script>
+
+        <link rel="stylesheet" href="css/styles.css" />
+        <style>
+            /* ── Offerings-page specific styles ── */
+
+            .offerings-hero {
+                background: linear-gradient(160deg, #0a7d00 0%, #549e39 45%, #a8d897 100%);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .offerings-hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(255, 255, 255, 0.07) 0%, transparent 70%),
+                    radial-gradient(ellipse 40% 60% at 20% 30%, rgba(255, 218, 174, 0.12) 0%, transparent 60%);
+                pointer-events: none;
+            }
+
+            /* Tag badge on card */
+            .offer-badge {
+                display: inline-block;
+                padding: 4px 14px;
+                border-radius: 100px;
+                font-size: 13px;
+                font-weight: 600;
+                margin-bottom: 20px;
+            }
+
+            /* Plan card */
+            .plan-card {
+                background: #ffffff;
+                border: 1px solid #d8e8d0;
+                border-radius: 20px;
+                padding: 32px;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                overflow: hidden;
+                transition:
+                    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+
+            .plan-card:hover {
+                transform: translateY(-6px);
+                box-shadow:
+                    0 16px 48px rgba(30, 60, 20, 0.13),
+                    0 4px 12px rgba(30, 60, 20, 0.07);
+            }
+
+            .plan-card.featured {
+                border-color: #549e39;
+                box-shadow:
+                    0 8px 32px rgba(84, 158, 57, 0.18),
+                    0 2px 8px rgba(84, 158, 57, 0.1);
+            }
+
+            .plan-card.featured:hover {
+                box-shadow:
+                    0 20px 56px rgba(84, 158, 57, 0.22),
+                    0 4px 16px rgba(84, 158, 57, 0.12);
+            }
+
+            .plan-card::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: transparent;
+            }
+
+            .plan-card.featured::before {
+                background: linear-gradient(90deg, #549e39, #0a7d00);
+            }
+
+            .plan-card.accent-card::before {
+                background: linear-gradient(90deg, #0da9ff, #0080cc);
+            }
+
+            .plan-divider {
+                height: 1px;
+                background: #d8e8d0;
+                margin: 24px 0;
+            }
+
+            .plan-feature {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+                font-size: 14px;
+                color: #5a6e54;
+                line-height: 1.5;
+                margin-bottom: 12px;
+            }
+
+            .plan-feature:last-child {
+                margin-bottom: 0;
+            }
+
+            .plan-feature-dot {
+                flex-shrink: 0;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                margin-top: 7px;
+            }
+
+            .plan-cta {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                padding: 14px;
+                border-radius: 100px;
+                font-family: "Roboto", sans-serif;
+                font-weight: 600;
+                font-size: 15px;
+                text-decoration: none;
+                border: none;
+                cursor: pointer;
+                transition:
+                    transform 0.2s,
+                    box-shadow 0.2s,
+                    filter 0.2s;
+                margin-top: auto;
+            }
+
+            .plan-cta:hover {
+                transform: translateY(-1px);
+                filter: brightness(1.06);
+            }
+
+            .plan-cta.green {
+                background: #549e39;
+                color: #fff;
+                box-shadow: 0 3px 12px rgba(84, 158, 57, 0.35);
+            }
+
+            .plan-cta.green-outline {
+                background: transparent;
+                color: #0a7d00;
+                border: 2px solid #549e39;
+            }
+
+            .plan-cta.blue {
+                background: #0da9ff;
+                color: #fff;
+                box-shadow: 0 3px 12px rgba(13, 169, 255, 0.35);
+            }
+
+            .plan-cta.peach {
+                background: #ffdaae;
+                color: #7a4010;
+                box-shadow: 0 3px 12px rgba(255, 218, 174, 0.5);
+            }
+
+            .plan-fine-print {
+                font-size: 12px;
+                color: #8ea386;
+                line-height: 1.6;
+                margin-top: 16px;
+                text-align: center;
+            }
+
+            /* Compare table */
+            .compare-table th {
+                font-family: "Roboto Condensed", sans-serif;
+                font-weight: 700;
+                font-size: 13px;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: #5a6e54;
+                padding: 12px 16px;
+                text-align: left;
+                border-bottom: 2px solid #d8e8d0;
+            }
+
+            .compare-table td {
+                padding: 14px 16px;
+                font-size: 14px;
+                color: #1a2318;
+                border-bottom: 1px solid #e8f5e2;
+                vertical-align: middle;
+            }
+
+            .compare-table tr:last-child td {
+                border-bottom: none;
+            }
+            .compare-table tr:hover td {
+                background: #f7f9f5;
+            }
+
+            .check-yes {
+                color: #549e39;
+            }
+            .check-no {
+                color: #c0d8b4;
+            }
+        </style>
+    </head>
+
+    <body class="bg-page text-ink font-body text-base leading-relaxed overflow-x-hidden">
+        <!-- ── NAV ── -->
+        <nav
+            class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 h-[64px] border-b border-border">
+            <a href="index.html" class="logo flex items-center no-underline">
+                <img src="PivotPointLogo.png" alt="PivotPoint" class="h-8 w-auto" />
+            </a>
+
+            <ul class="hidden md:flex list-none items-center gap-8">
+                <li>
+                    <a
+                        href="index.html#about"
+                        class="text-ink-muted no-underline text-sm font-normal hover:text-green-dark transition-colors duration-200"
+                        >About</a
+                    >
+                </li>
+                <li><a href="offerings.html" class="text-green font-medium no-underline text-sm">Offerings</a></li>
+                <li>
+                    <a
+                        href="index.html#testimonials"
+                        class="text-ink-muted no-underline text-sm font-normal hover:text-green-dark transition-colors duration-200"
+                        >Stories</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="index.html#faq"
+                        class="text-ink-muted no-underline text-sm font-normal hover:text-green-dark transition-colors duration-200"
+                        >FAQ</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="#plans"
+                        class="nav-cta bg-green text-white px-[22px] py-[9px] rounded-full text-sm font-medium no-underline">
+                        Get started
+                    </a>
+                </li>
+            </ul>
+
+            <button
+                id="nav-toggle"
+                class="md:hidden flex flex-col gap-[5px] p-2 cursor-pointer bg-transparent border-none">
+                <span class="block w-6 h-0.5 bg-ink transition-all duration-300"></span>
+                <span class="block w-6 h-0.5 bg-ink transition-all duration-300"></span>
+                <span class="block w-6 h-0.5 bg-ink transition-all duration-300"></span>
+            </button>
+        </nav>
+
+        <div
+            id="mobile-menu"
+            class="fixed top-[64px] left-0 right-0 z-40 bg-white border-b border-border shadow-lg translate-y-[-110%] transition-transform duration-300 md:hidden">
+            <ul class="list-none flex flex-col px-6 py-4 gap-1">
+                <li>
+                    <a
+                        href="index.html#about"
+                        class="mobile-link block py-3 text-ink-muted no-underline text-base border-b border-border/50"
+                        >About</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="offerings.html"
+                        class="mobile-link block py-3 text-green font-medium no-underline text-base border-b border-border/50"
+                        >Courses</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="index.html#testimonials"
+                        class="mobile-link block py-3 text-ink-muted no-underline text-base border-b border-border/50"
+                        >Stories</a
+                    >
+                </li>
+                <li>
+                    <a href="index.html#faq" class="mobile-link block py-3 text-ink-muted no-underline text-base"
+                        >FAQ</a
+                    >
+                </li>
+                <li class="pt-3">
+                    <a
+                        href="#plans"
+                        class="mobile-link block text-center bg-green text-white py-3 rounded-full text-sm font-medium no-underline"
+                        >Get started</a
+                    >
+                </li>
+            </ul>
+        </div>
+
+        <!-- ── HERO ── -->
+        <section class="offerings-hero pt-[100px] pb-16 md:pb-24 px-6 md:px-12 text-center">
+            <div class="relative max-w-[800px] mx-auto">
+                <p class="text-[13px] font-semibold tracking-[0.1em] uppercase text-white/70 mb-4">
+                    Courses & Services
+                </p>
+                <h1
+                    class="font-display font-extrabold text-white mb-5 leading-[1.05]"
+                    style="font-size: clamp(40px, 7vw, 80px); letter-spacing: -0.025em">
+                    Start today.
+                </h1>
+                <p class="text-lg md:text-xl text-white/80 font-light max-w-[540px] mx-auto leading-[1.65]">
+                    Choose a plan or service. From our free tiers with community access, to structured course bundles,
+                    or direct one-on-one mentorship. We've got you covered.
+                </p>
+            </div>
+        </section>
+
+        <!-- ── PLANS ── -->
+        <section class="bg-page py-12 md:py-20 px-6 md:px-12" id="plans">
+            <div class="max-w-[1200px] mx-auto">
+                <!-- 3-column grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- ── CARD 1: Community (Free) ── -->
+                    <div class="plan-card">
+                        <div>
+                            <span class="offer-badge bg-green-light text-green-dark">Free forever</span>
+                        </div>
+
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-7 h-7 bg-green rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg viewBox="0 0 24 24" fill="none" class="w-4 h-4">
+                                    <path
+                                        d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                                        stroke="white"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <span class="text-[13px] font-medium text-ink-muted">PivotPoint</span>
+                        </div>
+
+                        <h2 class="font-display font-extrabold text-green text-[32px] md:text-[36px] leading-none mb-3">
+                            Discord <br>Community
+                        </h2>
+
+                        <div class="font-display font-extrabold text-[28px] text-ink leading-none">FREE</div>
+                        <div class="text-sm text-ink-dim mt-1 mb-1">No credit card needed</div>
+
+                        <div class="plan-divider"></div>
+
+                        <div class="flex-1 mb-6">
+                            <div class="plan-feature">
+                                <span class="plan-feature-dot bg-green mt-1.5"></span>
+                                Access to the PivotPoint Discord community
+                            </div>
+                            <div class="plan-feature">
+                                <span class="plan-feature-dot bg-green mt-1.5"></span>
+                                Peer discussion and Q&A channels
+                            </div>
+                            <div class="plan-feature">
+                                <span class="plan-feature-dot bg-green mt-1.5"></span>
+                                Free resource library and templates
+                            </div>
+                            <div class="plan-feature">
+                                <span class="plan-feature-dot bg-green mt-1.5"></span>
+                                Monthly community events and webinars
+                            </div>
+                        </div>
+                        <!--href="https://auth.pivotpointeducation.com.au/auth/discord/discord"-->
+                        <a class="plan-cta bg-grey text-ink-muted">Coming Soon!</a>
+
+                        <p class="plan-fine-print">Always free. No commitment required.</p>
+                    </div>
+
+                    <!-- ── CARD 2: Blueprint (Featured) ── -->
+                    <div class="plan-card featured">
+                        <div>
+                            <span class="offer-badge bg-green-light text-green-dark">Service</span>
+                        </div>
+
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-7 h-7 bg-green rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg viewBox="0 0 24 24" fill="none" class="w-4 h-4">
+                                    <path
+                                        d="M4 19.5A2.5 2.5 0 016.5 17H20M4 4.5A2.5 2.5 0 016.5 7H20v13H6.5A2.5 2.5 0 014 17.5v-13z"
+                                        stroke="white"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <span class="text-[13px] font-medium text-ink-muted">PivotPoint</span>
+                        </div>
+
+                        <h2
+                            class="font-display font-extrabold text-green-dark text-[32px] md:text-[36px] leading-none mb-3">
+                            Resume / Cover Letter Review
+                        </h2>
+
+                        <div>
+                            <span class="font-display font-extrabold text-[28px] text-ink leading-none">$10</span>
+                            <span class="text-sm text-ink-dim"></span>
+                        </div>
+                        <div class="text-sm text-ink-dim mt-1 mb-1">Pay once per review</div>
+
+                        <div class="plan-divider"></div>
+
+                        <div class="flex-1 mb-6">
+                            <div class="plan-feature">
+                                <span class="plan-feature-dot bg-green mt-1.5"></span>
+                                Detailed resume or cover letter feedback from our expert team
+                            </div>
+                            <div class="plan-feature">
+                                <span class="plan-feature-dot bg-green mt-1.5"></span>
+                                Deep, insightful statistics and suggestions to help boost your success rate
+                            </div>
+                            <div class="plan-feature">
+                                <span class="plan-feature-dot bg-green mt-1.5"></span>
+                                Quick and easy, upload your resume or cover letter immediately
+                            </div>
+                        </div>
+
+                        <a href="#" class="plan-cta bg-grey text-ink-muted">Coming Soon!</a>
+
+                        <p class="plan-fine-print">See our Privacy Policy.</p>
+                    </div>
+
+                    <!-- ── CARD 3: Mentorship (1:1) ── -->
+                    <div class="plan-card accent-card">
+                        <div>
+                            <span class="offer-badge bg-accent-light text-accent" style="color: #0080cc">Premium</span>
+                        </div>
+
+                        <div class="flex items-center gap-2 mb-3">
+                            <div
+                                class="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
+                                style="background: #0da9ff">
+                                <svg viewBox="0 0 24 24" fill="none" class="w-4 h-4">
+                                    <path
+                                        d="M12 20h9M12 4v16M3 12h9M7 8l-4 4 4 4"
+                                        stroke="white"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <span class="text-[13px] font-medium text-ink-muted">PivotPoint</span>
+                        </div>
+
+                        <h2
+                            class="font-display font-extrabold text-[32px] md:text-[36px] leading-none mb-3"
+                            style="color: #0da9ff">
+                            The University Blueprint
+                        </h2>
+
+                        <div>
+                            <span class="font-display font-extrabold text-[28px] text-ink leading-none">$20</span>
+                            <span class="text-sm text-ink-dim"> / month</span>
+                        </div>
+                        <div class="text-sm text-ink-dim mt-1 mb-1">Billed Monthly, cancel at anytime.</div>
+
+                        <div class="plan-divider"></div>
+
+                        <div class="flex-1 mb-6">
+                            <div class="plan-feature">
+                                <span class="plan-feature-dot mt-1.5" style="background: #0da9ff"></span>
+                                Fast‑paced, practical program designed for first‑ and second‑year students who want to
+                                get ahead
+                            </div>
+                            <div class="plan-feature">
+                                <span class="plan-feature-dot mt-1.5" style="background: #0da9ff"></span>
+                                Gives you the early advantage - build strong habits, develop a standout profile, and
+                                start gaining experience
+                            </div>
+                            <div class="plan-feature">
+                                <span class="plan-feature-dot mt-1.5" style="background: #0da9ff"></span>
+                                Includes monthly mentorship and guidance from our team of experts
+                            </div>
+                            <div class="plan-feature">
+                                <span class="plan-feature-dot mt-1.5" style="background: #0da9ff"></span>
+                                Direct message access between sessions, with VIP access in our Discord
+                            </div>
+                        </div>
+
+                        <a href="https://www.gokollab.com/about/pivotpoint-uni-success-bootcamp" class="plan-cta blue"> Buy now </a>
+
+                        <p class="plan-fine-print">See our Privacy Policy</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── COMPARE TABLE ── -->
+        <!--
+  <section class="bg-white py-12 md:py-20 px-6 md:px-12">
+    <div class="max-w-[900px] mx-auto">
+      <p class="text-[12px] font-bold tracking-[0.1em] uppercase text-green mb-3 text-center">Compare plans</p>
+      <h2 class="font-display font-extrabold text-ink text-center mb-10 leading-[1.1]" style="font-size: clamp(26px, 4vw, 42px); letter-spacing: -0.02em;">
+        What's included
+      </h2>
+
+      <div class="overflow-x-auto rounded-2xl border border-border">
+        <table class="compare-table w-full">
+          <thead>
+            <tr class="bg-page">
+              <th class="w-1/2">Feature</th>
+              <th class="text-center">Community</th>
+              <th class="text-center text-green">Blueprint</th>
+              <th class="text-center" style="color:#0DA9FF;">Mentorship</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Discord community access</td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+            </tr>
+            <tr>
+              <td>Free resource library</td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+            </tr>
+            <tr>
+              <td>Structured courses</td>
+              <td class="text-center"><svg class="check-no w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+            </tr>
+            <tr>
+              <td>Résumé & cover letter review</td>
+              <td class="text-center"><svg class="check-no w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+            </tr>
+            <tr>
+              <td>Interview preparation modules</td>
+              <td class="text-center"><svg class="check-no w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+            </tr>
+            <tr>
+              <td>Monthly group mentorship</td>
+              <td class="text-center"><svg class="check-no w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+            </tr>
+            <tr>
+              <td>1-on-1 sessions with Keith</td>
+              <td class="text-center"><svg class="check-no w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></td>
+              <td class="text-center"><svg class="check-no w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+            </tr>
+            <tr>
+              <td>Personalised career roadmap</td>
+              <td class="text-center"><svg class="check-no w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></td>
+              <td class="text-center"><svg class="check-no w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+            </tr>
+            <tr>
+              <td>Mock interview with feedback</td>
+              <td class="text-center"><svg class="check-no w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></td>
+              <td class="text-center"><svg class="check-no w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></td>
+              <td class="text-center"><svg class="check-yes w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  -->
+
+        <!-- ── CTA STRIP ── -->
+        <section class="cta-strip py-16 md:py-20 px-6 md:px-12 text-center">
+            <div class="relative z-10">
+                <h2
+                    class="font-display font-extrabold text-white mb-3 leading-[1.1]"
+                    style="font-size: clamp(28px, 4vw, 48px); letter-spacing: -0.02em">
+                    Not sure where to start?
+                </h2>
+                <p class="text-[17px] text-white/80 font-light mb-9 max-w-[480px] mx-auto">
+                    Join the free community first — no pressure, no commitment. Upgrade whenever you're ready.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <!--href="https://auth.pivotpointeducation.com.au/auth/discord/discord"-->
+                    <a
+                        href="#"
+                        class="btn-white inline-flex items-center gap-2 bg-white text-green-dark px-9 py-[15px] rounded-full font-semibold text-[15px] no-underline cursor-pointer border-none">
+                        Join free
+                    </a>
+                    <a
+                        href="#plans"
+                        class="inline-flex items-center gap-2 text-white/80 hover:text-white text-[15px] no-underline transition-colors duration-200">
+                        View all plans
+                        <svg
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="w-4 h-4">
+                            <path d="M3 8h10M9 4l4 4-4 4" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── FOOTER ── -->
+        <footer class="bg-ink py-8 md:py-11 px-6 md:px-12">
+            <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
+                <a href="index.html" class="footer-logo flex items-center no-underline">
+                    <img src="PivotPointLogo.png" alt="PivotPoint" class="h-9 w-auto brightness-0 invert" />
+                </a>
+                <div class="flex flex-wrap justify-center gap-5 md:gap-7">
+                    <a
+                        href="index.html#about"
+                        class="text-[13px] text-white/50 no-underline hover:text-white/90 transition-colors duration-200"
+                        >About</a
+                    >
+                    <a
+                        href="offerings.html"
+                        class="text-[13px] text-white/70 no-underline hover:text-white/90 transition-colors duration-200"
+                        >Courses</a
+                    >
+                    <a
+                        href="index.html#faq"
+                        class="text-[13px] text-white/50 no-underline hover:text-white/90 transition-colors duration-200"
+                        >FAQ</a
+                    >
+                    <a
+                        href="#"
+                        class="text-[13px] text-white/50 no-underline hover:text-white/90 transition-colors duration-200"
+                        >Contact</a
+                    >
+                </div>
+                <p class="text-[13px] text-white/35 text-center md:text-left">
+                    © 2026 PivotPoint. All rights reserved.
+                </p>
+            </div>
+        </footer>
+
+        <script src="main.js"></script>
+    </body>
+</html>
