@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PivotPoint — Legal</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            green: "#549E39",
+                            "green-dark": "#0A7D00",
+                            "green-light": "#e8f5e2",
+                            "green-mid": "#c2e0b4",
+                            accent: "#0DA9FF",
+                            "accent-light": "#e0f4ff",
+                            peach: "#FFDAAE",
+                            "peach-dark": "#d4863a",
+                            "peach-light": "#fff5ea",
+                            page: "#f7f9f5",
+                            grey: "#A9A9A9",
+                            border: "#d8e8d0",
+                            "border-mid": "#c0d8b4",
+                            ink: "#1a2318",
+                            "ink-muted": "#5a6e54",
+                            "ink-dim": "#8ea386"
+                        },
+                        fontFamily: {
+                            display: ['"Roboto Condensed"', "sans-serif"],
+                            body: ["Roboto", "sans-serif"]
+                        }
+                    }
+                }
+            };
+        </script>
+
+        <link rel="stylesheet" href="css/styles.css" />
+        <style>
+            /* ── Offerings-page specific styles ── */
+
+            .offerings-hero {
+                background: linear-gradient(160deg, #0a7d00 0%, #549e39 45%, #a8d897 100%);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .offerings-hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(255, 255, 255, 0.07) 0%, transparent 70%),
+                    radial-gradient(ellipse 40% 60% at 20% 30%, rgba(255, 218, 174, 0.12) 0%, transparent 60%);
+                pointer-events: none;
+            }
+
+            /* Tag badge on card */
+            .offer-badge {
+                display: inline-block;
+                padding: 4px 14px;
+                border-radius: 100px;
+                font-size: 13px;
+                font-weight: 600;
+                margin-bottom: 20px;
+            }
+
+
+            /* Compare table */
+            .compare-table th {
+                font-family: "Roboto Condensed", sans-serif;
+                font-weight: 700;
+                font-size: 13px;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: #5a6e54;
+                padding: 12px 16px;
+                text-align: left;
+                border-bottom: 2px solid #d8e8d0;
+            }
+
+            .compare-table td {
+                padding: 14px 16px;
+                font-size: 14px;
+                color: #1a2318;
+                border-bottom: 1px solid #e8f5e2;
+                vertical-align: middle;
+            }
+
+            .compare-table tr:last-child td {
+                border-bottom: none;
+            }
+            .compare-table tr:hover td {
+                background: #f7f9f5;
+            }
+
+            .check-yes {
+                color: #549e39;
+            }
+            .check-no {
+                color: #c0d8b4;
+            }
+
+            /* ── Typography ─────────────────────────────────────────── */
+
+/* Large/Bold Heading */
+.text-heading-lg {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+
+/* Medium Heading */
+.text-heading-md {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+/* Standard Body Text */
+.text-body {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+        </style>
+    </head>
+
+    <body class="bg-page text-ink font-body text-base leading-relaxed overflow-x-hidden">
+        <!-- ── NAV ── -->
+        <nav
+            class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 h-[64px] border-b border-border">
+            <a href="index.html" class="logo flex items-center no-underline">
+                <img src="PivotPointLogo.png" alt="PivotPoint" class="h-8 w-auto" />
+            </a>
+
+            <ul class="hidden md:flex list-none items-center gap-8">
+                <li>
+                    <a
+                        href="index.html#about"
+                        class="text-ink-muted no-underline text-sm font-normal hover:text-green-dark transition-colors duration-200"
+                        >About</a
+                    >
+                </li>
+                <li><a href="offerings.html" class="text-ink-muted font-medium no-underline text-sm">Offerings</a></li>
+                <li>
+                    <a
+                        href="index.html#testimonials"
+                        class="text-ink-muted no-underline text-sm font-normal hover:text-green-dark transition-colors duration-200"
+                        >Stories</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="index.html#faq"
+                        class="text-ink-muted no-underline text-sm font-normal hover:text-green-dark transition-colors duration-200"
+                        >FAQ</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="#plans"
+                        class="nav-cta bg-green text-white px-[22px] py-[9px] rounded-full text-sm font-medium no-underline">
+                        Get started
+                    </a>
+                </li>
+            </ul>
+
+            <button
+                id="nav-toggle"
+                class="md:hidden flex flex-col gap-[5px] p-2 cursor-pointer bg-transparent border-none">
+                <span class="block w-6 h-0.5 bg-ink transition-all duration-300"></span>
+                <span class="block w-6 h-0.5 bg-ink transition-all duration-300"></span>
+                <span class="block w-6 h-0.5 bg-ink transition-all duration-300"></span>
+            </button>
+        </nav>
+
+        <div
+            id="mobile-menu"
+            class="fixed top-[64px] left-0 right-0 z-40 bg-white border-b border-border shadow-lg translate-y-[-110%] transition-transform duration-300 md:hidden">
+            <ul class="list-none flex flex-col px-6 py-4 gap-1">
+                <li>
+                    <a
+                        href="index.html#about"
+                        class="mobile-link block py-3 text-ink-muted no-underline text-base border-b border-border/50"
+                        >About</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="offerings.html"
+                        class="mobile-link block py-3 text-ink-muted font-medium no-underline text-base border-b border-border/50"
+                        >Courses</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="index.html#testimonials"
+                        class="mobile-link block py-3 text-ink-muted no-underline text-base border-b border-border/50"
+                        >Stories</a
+                    >
+                </li>
+                <li>
+                    <a href="index.html#faq" class="mobile-link block py-3 text-ink-muted no-underline text-base"
+                        >FAQ</a
+                    >
+                </li>
+                <li class="pt-3">
+                    <a
+                        href="#plans"
+                        class="mobile-link block text-center bg-green text-white py-3 rounded-full text-sm font-medium no-underline"
+                        >Get started</a
+                    >
+                </li>
+            </ul>
+        </div>
+
+        <!-- ── HERO ── -->
+        <section class="offerings-hero pt-[100px] pb-16 md:pb-24 px-6 md:px-12 text-center">
+            <div class="relative max-w-[800px] mx-auto">
+                <p class="text-[13px] font-semibold tracking-[0.1em] uppercase text-white/70 mb-4"></p>
+                <h1
+                    class="font-display font-extrabold text-white mb-5 leading-[1.05]"
+                    style="font-size: clamp(40px, 7vw, 80px); letter-spacing: -0.025em">
+                    Terms and Conditions & Privacy Policy
+                </h1>
+                <p class="text-lg md:text-xl text-white/80 font-light max-w-[540px] mx-auto leading-[1.65]">
+                    Last Updated: July 27, 2026<br>
+                    ABN: 34260349033
+                </p>
+            </div>
+        </section>
+
+        <!-- ── Terms and Conditions ── -->
+        <section class="bg-page py-12 md:py-20 px-6 md:px-12" id="terms">
+            <h1 class="text-heading-lg">Terms and Conditions</h1>
+            <h2 class="text-heading-md">1. Introduction</h2>
+            <p class="text-body">These Terms & Conditions (“Terms”) govern your use of the online course, digital products, and interview‑review services (“Services”) provided by PivotPoint Education (“we”, “us”, “our”). By purchasing or accessing our Services, you agree to be bound by these Terms.</p>
+            <h2 class="text-heading-md">2. Nature of Services</h2>
+            <p class="text-body">We provide:<br>Online educational content delivered digitally<br>Interview‑review and feedback services<br>Coaching or advisory services (where applicable)<br>All Services are educational in nature and do not guarantee employment, job offers, or specific outcomes.</p>
+            <h2 class="text-heading-md">3. Eligibility</h2>
+            <p class="text-body">You must be at least 18 years old or have parental consent to use our Services.</p>
+            <h2 class="text-heading-md">4. Payments</h2>
+            <p class="text-body">Payments must be made in full at the time of purchase through our approved payment processors (e.g., Stripe, PayPal).<br>Prices are listed in AUD unless otherwise stated.</p>
+            <h2 class="text-heading-md">5. Australian Consumer Law</h2>
+            <p class="text-body">Nothing in these Terms limits your rights under the Australian Consumer Law (ACL). You are entitled to a remedy if our Services fail to meet consumer guarantees.</p>
+            <h2 class="text-heading-md">6. Refunds </h2>
+            <p class="text-body">Our Refund Policy forms part of these Terms.<br>We do not offer refunds for change of mind.<br>Refunds are available where required under ACL (e.g., major failure, not delivered as described).<br>Digital products are considered “delivered” once access is granted.</p>
+            <h2 class="text-heading-md">7. Intellectual Property </h2>
+            <p class="text-body">All course materials, videos, templates, documents, and content are owned by us. You are granted a non‑exclusive, non‑transferable licence for personal use only.<br>You must not:<br>Copy, reproduce, or distribute our content<br>Share login details<br>Resell or republish any part of our Services.</p>
+            <h2 class="text-heading-md">8. User Obligations</h2>
+            <p class="text-body">You agree to:<br>Provide accurate information<br>Use the Services lawfully<br>Not engage in abusive, harmful, or disruptive behaviour<br>Not misuse or attempt to reverse‑engineer our platform.</p>
+            <h2 class="text-heading-md">9. Interview Review Service </h2>
+            <p class="text-body">Where you submit recordings, CVs, or other materials for review:<br>You confirm you have the right to share them<br>You grant us permission to review and provide feedback<br>We will not share your materials without consent.</p>
+            <h2 class="text-heading-md">10. Limitations of Liability </h2>
+            <p class="text-body">To the maximum extent permitted by law:<br>We are not liable for indirect or consequential loss<br>We do not guarantee employment outcomes<br>Our total liability is limited to the amount paid for the relevant Service.</p>
+            <h2 class="text-heading-md">11. Privacy </h2>
+            <p class="text-body">Our Privacy Policy forms parts of these terms.</p>
+            <h2 class="text-heading-md">12. Termination </h2>
+            <p class="text-body">We may suspend or terminate access if you breach these Terms.</p>
+            <h2 class="text-heading-md">13. Governing Law </h2>
+            <p class="text-body">These Terms are governed by the laws of Victoria, Australia.</p>
+            <h2 class="text-heading-md">14. Contact </h2>
+            <p class="text-body">For questions, email: info@pivotpointeducation.com.au</p>
+
+            <h1 class="text-heading-lg">Returns and Refunds</h1>
+            <h2 class="text-heading-md">1. Overview </h2>
+            <p class="text-body">This Refunds & Returns Policy applies to all digital products, online courses, and interview‑review services provided by PivotPoint Education.</p>
+            <h2 class="text-heading-md">2. Change of Mind </h2>
+            <p class="text-body">We do not offer refunds for change of mind or accidental purchases.</p>
+            <h2 class="text-heading-md">3. Australian Consumer Law </h2>
+            <p class="text-body">Under the Australian Consumer Law, you are entitled to a refund or replacement if the Service has a major failure, including:<br>The service is not delivered<br>The service is significantly different from what was described<br>The service is unsafe<br>The service is not provided with due care and skill</p>
+            <h2 class="text-heading-md">4. Digital Products </h2>
+            <p class="text-body">Digital products (including online courses) are considered “delivered” once access is provided.<br>Refunds are only available where required under ACL.</p>
+            <h2 class="text-heading-md">5. Interview Review Services </h2>
+            <p class="text-body">Refunds may be provided if:<br>We fail to deliver the review within the stated timeframe<br>The service is not provided with due care and skill<br>The service is not as described</p>
+            <h2 class="text-heading-md">6. How to Request a Refund </h2>
+            <p class="text-body">Email us at info@pivotpointeducation.com.au with:<br>Your full name<br>Purchase details<br>Reason for refund request<br>Supporting evidence (if applicable)<br>We will respond within 5 business days.</p>
+            <h2 class="text-heading-md">7. Processing Time</h2>
+            <p class="text-body">Approved refunds will be processed within 7–10 business days.</p>
+        </section>
+
+        <!-- ── FOOTER ── -->
+        <footer class="bg-ink py-8 md:py-11 px-6 md:px-12">
+            <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
+                <a href="index.html" class="footer-logo flex items-center no-underline">
+                    <img src="PivotPointLogo.png" alt="PivotPoint" class="h-9 w-auto brightness-0 invert" />
+                </a>
+                <div class="flex flex-wrap justify-center gap-5 md:gap-7">
+                    <a
+                        href="index.html#about"
+                        class="text-[13px] text-white/50 no-underline hover:text-white/90 transition-colors duration-200"
+                        >About</a
+                    >
+                    <a
+                        href="offerings.html"
+                        class="text-[13px] text-white/50 no-underline hover:text-white/90 transition-colors duration-200"
+                        >Courses</a
+                    >
+                    <a
+                        href="index.html#faq"
+                        class="text-[13px] text-white/50 no-underline hover:text-white/90 transition-colors duration-200"
+                        >FAQ</a
+                    >
+                    <a
+                        href="#"
+                        class="text-[13px] text-white/50 no-underline hover:text-white/90 transition-colors duration-200"
+                        >Contact</a
+                    >
+                    <a
+                        href="legal.html"
+                        class="text-[13px] text-white/70 no-underline hover:text-white/90 transition-colors duration-200"
+                        >Legal</a
+                    >
+                </div>
+                <p class="text-[13px] text-white/35 text-center md:text-left">
+                    © 2026 PivotPoint. All rights reserved.
+                </p>
+            </div>
+        </footer>
+
+        <script src="main.js"></script>
+
+    </body>
+</html>

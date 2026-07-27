@@ -374,7 +374,7 @@
                         </div>
 
                         <h2 class="font-display font-extrabold text-green text-[32px] md:text-[36px] leading-none mb-3">
-                            Discord <br>Community
+                            Discord <br />Community
                         </h2>
 
                         <div class="font-display font-extrabold text-[28px] text-ink leading-none">FREE</div>
@@ -454,7 +454,11 @@
                             </div>
                         </div>
 
-                        <a href="#" class="plan-cta bg-grey text-ink-muted">Coming Soon!</a>
+                        <button
+                            id="open-review-modal"
+                            class="plan-cta bg-green text-white shadow-[0_3px_12px_rgba(84,158,57,0.35)] mt-auto w-full cursor-pointer border-none transition-all hover:-translate-y-[1px] hover:brightness-110">
+                            Submit Document
+                        </button>
 
                         <p class="plan-fine-print">See our Privacy Policy.</p>
                     </div>
@@ -489,9 +493,9 @@
 
                         <div>
                             <span class="font-display font-extrabold text-[28px] text-ink leading-none">$20</span>
-                            <span class="text-sm text-ink-dim"> / month</span>
+                            <span class="text-sm text-ink-dim">Once off</span>
                         </div>
-                        <div class="text-sm text-ink-dim mt-1 mb-1">Billed Monthly, cancel at anytime.</div>
+                        <!--<div class="text-sm text-ink-dim mt-1 mb-1">Billed Monthly, cancel at anytime.</div>-->
 
                         <div class="plan-divider"></div>
 
@@ -516,7 +520,9 @@
                             </div>
                         </div>
 
-                        <a href="https://www.gokollab.com/about/pivotpoint-uni-success-bootcamp" class="plan-cta blue"> Buy now </a>
+                        <a href="https://www.gokollab.com/about/pivotpoint-uni-success-bootcamp" class="plan-cta blue">
+                            Buy now
+                        </a>
 
                         <p class="plan-fine-print">See our Privacy Policy</p>
                     </div>
@@ -669,6 +675,9 @@
                         class="text-[13px] text-white/50 no-underline hover:text-white/90 transition-colors duration-200"
                         >Contact</a
                     >
+                    <a href="legal.html" class="text-[13px] text-white/50 no-underline hover:text-white/90 transition-colors duration-200"
+            >Legal</a
+          >
                 </div>
                 <p class="text-[13px] text-white/35 text-center md:text-left">
                     © 2026 PivotPoint. All rights reserved.
@@ -677,5 +686,90 @@
         </footer>
 
         <script src="main.js"></script>
+
+        <!-- ── DOCUMENT UPLOAD MODAL ── -->
+<div id="review-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+    <!-- Backdrop -->
+    <div id="modal-backdrop" class="absolute inset-0 bg-ink/70 backdrop-blur-sm transition-opacity duration-300 opacity-0"></div>
+
+    <!-- Modal Content -->
+    <div id="modal-content" class="relative bg-white w-full max-w-lg rounded-2xl shadow-2xl p-6 md:p-8 transform scale-95 opacity-0 transition-all duration-300 max-h-[90vh] overflow-y-auto">
+
+        <!-- Close Button -->
+        <button id="close-modal" class="absolute top-4 right-4 text-ink-muted hover:text-green-dark transition-colors bg-transparent border-none cursor-pointer p-2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+
+        <h3 class="font-display font-extrabold text-2xl text-ink mb-1">Request a Review</h3>
+        <p class="text-sm text-ink-dim mb-6">Fill out your details and upload your document. You will be redirected to secure payment.</p>
+
+        <form id="review-form" class="space-y-4">
+            <!-- Name Grid -->
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-[13px] font-bold text-ink-muted mb-1 uppercase tracking-wide">First Name</label>
+                    <input type="text" id="fname" name="fname" required class="w-full px-4 py-2.5 rounded-lg border border-border bg-page text-ink focus:outline-none focus:border-green focus:ring-1 focus:ring-green transition-colors">
+                </div>
+                <div>
+                    <label class="block text-[13px] font-bold text-ink-muted mb-1 uppercase tracking-wide">Last Name</label>
+                    <input type="text" id="lname" name="lname" required class="w-full px-4 py-2.5 rounded-lg border border-border bg-page text-ink focus:outline-none focus:border-green focus:ring-1 focus:ring-green transition-colors">
+                </div>
+            </div>
+
+            <!-- Contact Grid -->
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-[13px] font-bold text-ink-muted mb-1 uppercase tracking-wide">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-2.5 rounded-lg border border-border bg-page text-ink focus:outline-none focus:border-green focus:ring-1 focus:ring-green transition-colors">
+                </div>
+                <div>
+                    <label class="block text-[13px] font-bold text-ink-muted mb-1 uppercase tracking-wide">Phone</label>
+                    <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2.5 rounded-lg border border-border bg-page text-ink focus:outline-none focus:border-green focus:ring-1 focus:ring-green transition-colors">
+                </div>
+
+            </div>
+            <div>
+                    <label class="block text-[13px] font-bold text-ink-muted mb-1 uppercase tracking-wide">Role Applied For</label>
+                    <input type="text" id="role" name="role" required class="w-full px-4 py-2.5 rounded-lg border border-border bg-page text-ink focus:outline-none focus:border-green focus:ring-1 focus:ring-green transition-colors">
+                </div>
+
+            <!-- Document Type (Dot Selector) -->
+            <div>
+                <label class="block text-[13px] font-bold text-ink-muted mb-2 uppercase tracking-wide">Document Type</label>
+                <div class="flex gap-4">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="docType" value="resume" required class="accent-green w-4 h-4">
+                        <span class="text-sm font-medium text-ink">Résumé</span>
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="docType" value="cover_letter" required class="accent-green w-4 h-4">
+                        <span class="text-sm font-medium text-ink">Cover Letter</span>
+                    </label>
+                </div>
+
+            </div>
+
+            <!-- File Upload -->
+            <div>
+                <label class="block text-[13px] font-bold text-ink-muted mb-1 uppercase tracking-wide">Upload PDF</label>
+                <input type="file" id="document" name="document" accept="application/pdf" required class="w-full px-3 py-2 rounded-lg border border-border bg-page text-sm text-ink-muted file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-light file:text-green-dark hover:file:bg-green-mid cursor-pointer transition-colors">
+            </div>
+
+            <!-- Comments -->
+            <div>
+                <label class="block text-[13px] font-bold text-ink-muted mb-1 uppercase tracking-wide">Additional Comments</label>
+                <textarea id="comments" name="comments" rows="3" placeholder="Targeting a specific role? Let us know..." class="w-full px-4 py-2.5 rounded-lg border border-border bg-page text-ink focus:outline-none focus:border-green focus:ring-1 focus:ring-green transition-colors resize-none"></textarea>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" id="submit-form-btn" class="w-full mt-4 bg-green text-white font-bold py-3.5 rounded-full shadow-[0_3px_12px_rgba(84,158,57,0.35)] hover:-translate-y-[1px] hover:brightness-110 transition-all flex justify-center items-center gap-2 border-none cursor-pointer">
+                <span>Continue to Payment</span>
+            </button>
+        </form>
+    </div>
+</div>
     </body>
 </html>
