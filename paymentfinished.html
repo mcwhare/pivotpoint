@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Successful — PivotPoint</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            green:        '#549E39',
+            'green-dark': '#0A7D00',
+            'green-light':'#e8f5e2',
+            accent:       '#0DA9FF',
+            'accent-light':'#e0f4ff',
+            peach:        '#FFDAAE',
+            'peach-dark': '#d4863a',
+            'peach-light':'#fff5ea',
+            page:         '#f7f9f5',
+            border:       '#d8e8d0',
+            ink:          '#1a2318',
+            'ink-muted':  '#5a6e54',
+            'ink-dim':    '#8ea386',
+          },
+          fontFamily: {
+            display: ['"Roboto Condensed"', 'sans-serif'],
+            body:    ['Roboto', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* ── Checkmark animation ── */
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.5); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes checkDraw {
+      from { stroke-dashoffset: 60; }
+      to   { stroke-dashoffset: 0; }
+    }
+
+    @keyframes ringPulse {
+      0%   { transform: scale(1);   opacity: 0.6; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .check-circle {
+      animation: scaleIn 0.5s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+    }
+
+    .check-ring {
+      position: absolute; inset: 0;
+      border-radius: 50%;
+      border: 3px solid #549E39;
+      animation: ringPulse 1s ease-out 0.5s both;
+    }
+
+    .check-path {
+      stroke-dasharray: 60;
+      stroke-dashoffset: 60;
+      animation: checkDraw 0.45s ease-out 0.55s forwards;
+    }
+
+    .content-block {
+      animation: fadeSlideUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.7s both;
+    }
+
+    /* Progress bar */
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #549E39, #0A7D00);
+      border-radius: 100px;
+      width: 100%;
+      transform-origin: left;
+      animation: shrink linear forwards;
+    }
+
+    @keyframes shrink {
+      from { transform: scaleX(1); }
+      to   { transform: scaleX(0); }
+    }
+
+    /* Confetti dots */
+    .confetti-wrap {
+      position: fixed; inset: 0;
+      pointer-events: none; overflow: hidden; z-index: 0;
+    }
+
+    .dot {
+      position: absolute;
+      width: 8px; height: 8px;
+      border-radius: 2px;
+      opacity: 0;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      0%   { opacity: 1; transform: translateY(-20px) rotate(0deg); }
+      100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+    }
+  </style>
+</head>
+
+<body class="bg-page text-ink font-body min-h-screen flex flex-col overflow-x-hidden">
+
+  <!-- Confetti -->
+  <div class="confetti-wrap" id="confetti"></div>
+
+  <!-- Nav -->
+  <nav class="w-full flex items-center justify-between px-6 md:px-12 h-[64px] border-b border-border bg-page/90 backdrop-blur-sm relative z-10">
+    <a href="index.html" class="flex items-center no-underline">
+      <img src="PivotPointLogo.png" alt="PivotPoint" class="h-8 w-auto">
+    </a>
+  </nav>
+
+  <!-- Main -->
+  <main class="flex-1 flex items-center justify-center px-6 py-16 relative z-10">
+    <div class="max-w-[480px] w-full text-center">
+
+      <!-- Animated checkmark -->
+      <div class="flex justify-center mb-8">
+        <div class="relative w-24 h-24">
+          <div class="check-ring"></div>
+          <div class="check-circle w-24 h-24 bg-green rounded-full flex items-center justify-center shadow-lg" style="box-shadow: 0 8px 32px rgba(84,158,57,0.35);">
+            <svg viewBox="0 0 40 40" fill="none" class="w-10 h-10">
+              <path class="check-path" d="M10 20 L17 28 L30 13" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text content -->
+      <div class="content-block">
+        <p class="text-[12px] font-bold tracking-[0.1em] uppercase text-green mb-3">Payment confirmed</p>
+        <h1 class="font-display font-extrabold text-ink mb-4 leading-[1.05]" style="font-size: clamp(32px, 6vw, 52px); letter-spacing: -0.025em;">
+          You're in.<br>Let's build your future.
+        </h1>
+        <p class="text-base text-ink-muted font-light leading-[1.7] mb-8 max-w-[380px] mx-auto">
+          Your payment was successful. Welcome to PivotPoint — everything is ready for you. Check your email for a confirmation and next steps.
+        </p>
+
+        <!-- What's next cards -->
+        <div class="flex flex-col gap-3 mb-10 text-left">
+
+          <div class="flex items-start gap-4 bg-white border border-border rounded-xl px-5 py-4">
+            <div class="w-9 h-9 bg-green-light rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0A7D00" stroke-width="1.8" class="w-5 h-5">
+                <path d="M4 4h16v16H4zM8 2v4M16 2v4M4 10h16" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-ink mb-0.5">Check your inbox</p>
+              <p class="text-[13px] text-ink-muted font-light">A confirmation email with your receipt and login details is on its way.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 bg-white border border-border rounded-xl px-5 py-4">
+            <div class="w-9 h-9 bg-accent-light rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0DA9FF" stroke-width="1.8" class="w-5 h-5">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-ink mb-0.5">Join the community</p>
+              <p class="text-[13px] text-ink-muted font-light">Head to our Discord and introduce yourself — your peers are already there.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 bg-white border border-border rounded-xl px-5 py-4">
+            <div class="w-9 h-9 bg-peach-light rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#d4863a" stroke-width="1.8" class="w-5 h-5">
+                <path d="M4 19.5A2.5 2.5 0 016.5 17H20M4 4.5A2.5 2.5 0 016.5 7H20v13H6.5A2.5 2.5 0 014 17.5v-13z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-ink mb-0.5">Start your first course</p>
+              <p class="text-[13px] text-ink-muted font-light">Your course library is unlocked and ready whenever you are.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CTA button -->
+        <a href="index.html" class="btn-primary inline-flex items-center gap-2 bg-green text-white px-8 py-3.5 rounded-full font-medium text-[15px] no-underline border-none cursor-pointer mb-6">
+          Go to homepage
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </a>
+
+        <!-- Countdown -->
+        <div>
+          <p class="text-[13px] text-ink-dim mb-2">
+            Redirecting to homepage in <span id="countdown" class="font-medium text-ink-muted">10</span>s
+          </p>
+          <div class="w-full h-1 bg-border rounded-full overflow-hidden">
+            <div class="progress-bar-fill" id="progress-bar" style="animation-duration: 10s;"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-border px-6 md:px-12 py-6">
+    <div class="max-w-[1200px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
+      <a href="index.html" class="flex items-center no-underline">
+        <img src="PivotPointLogo.png" alt="PivotPoint" class="h-7 w-auto opacity-50 hover:opacity-80 transition-opacity">
+      </a>
+      <p class="text-[13px] text-ink-dim">Need help? <a href="mailto:hello@pivotpointeducation.com.au" class="text-green no-underline hover:underline">Contact us</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Countdown & redirect ──────────────────────────────
+    const SECONDS = 10;
+    const countdownEl = document.getElementById('countdown');
+    let remaining = SECONDS;
+
+    const interval = setInterval(() => {
+      remaining--;
+      countdownEl.textContent = remaining;
+      if (remaining <= 0) {
+        clearInterval(interval);
+        window.location.href = 'index.html';
+      }
+    }, 1000);
+
+    // ── Confetti ──────────────────────────────────────────
+    const COLORS = ['#549E39', '#0A7D00', '#FFDAAE', '#0DA9FF', '#c2e0b4', '#d4863a'];
+    const container = document.getElementById('confetti');
+    const COUNT = 60;
+
+    for (let i = 0; i < COUNT; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot';
+
+      const size = Math.random() * 8 + 5;
+      const left = Math.random() * 100;
+      const delay = Math.random() * 1.5;
+      const duration = Math.random() * 2 + 2;
+      const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+      const borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+
+      dot.style.cssText = `
+        left: ${left}%;
+        top: -20px;
+        width: ${size}px;
+        height: ${size}px;
+        background: ${color};
+        border-radius: ${borderRadius};
+        animation-delay: ${delay}s;
+        animation-duration: ${duration}s;
+      `;
+
+      container.appendChild(dot);
+    }
+  </script>
+
+</body>
+</html>
