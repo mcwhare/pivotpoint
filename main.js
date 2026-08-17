@@ -90,8 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Bind Open Buttons
-    const btnOpenResume = document.getElementById("open-resume-modal");
-    const btnOpenMentorship = document.getElementById("open-mentorship-modal");
+    const btnOpenResume = document.getElementById("open-review-modal");
+    const btnOpenMentorship = document.getElementById("open-mentor-modal");
 
     if (btnOpenResume) {
         btnOpenResume.addEventListener("click", (e) => {
@@ -193,6 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
             formData.append('lname', document.getElementById('men-lname').value);
             formData.append('email', document.getElementById('men-email').value);
             formData.append('phone', document.getElementById('men-phone').value || 'none');
+            formData.append('study', document.getElementById('men-study').value || 'Not provided');
             formData.append('comments', document.getElementById('men-comments').value);
             formData.append('role', 'Mentorship Student');
 
