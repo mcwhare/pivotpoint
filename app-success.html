@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Payment Successful — PivotPoint</title>
+  <title>Application Successful — PivotPoint</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -65,7 +65,7 @@
     .check-ring {
       position: absolute; inset: 0;
       border-radius: 50%;
-      border: 3px solid #549E39;
+      border: 3px solid #0DA9FF; /* Changed to accent blue for Mentorship */
       animation: ringPulse 1s ease-out 0.5s both;
     }
 
@@ -82,7 +82,7 @@
     /* Progress bar */
     .progress-bar-fill {
       height: 100%;
-      background: linear-gradient(90deg, #549E39, #0A7D00);
+      background: linear-gradient(90deg, #0DA9FF, #0080cc); /* Updated to blue gradient */
       border-radius: 100px;
       width: 100%;
       transform-origin: left;
@@ -135,7 +135,8 @@
       <div class="flex justify-center mb-8">
         <div class="relative w-24 h-24">
           <div class="check-ring"></div>
-          <div class="check-circle w-24 h-24 bg-green rounded-full flex items-center justify-center shadow-lg" style="box-shadow: 0 8px 32px rgba(84,158,57,0.35);">
+          <!-- Changed background to accent blue to match mentorship tier -->
+          <div class="check-circle w-24 h-24 bg-accent rounded-full flex items-center justify-center shadow-lg" style="box-shadow: 0 8px 32px rgba(13,169,255,0.35);">
             <svg viewBox="0 0 40 40" fill="none" class="w-10 h-10">
               <path class="check-path" d="M10 20 L17 28 L30 13" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -145,29 +146,33 @@
 
       <!-- Text content -->
       <div class="content-block">
-        <p class="text-[12px] font-bold tracking-[0.1em] uppercase text-green mb-3">Payment confirmed</p>
+        <p class="text-[12px] font-bold tracking-[0.1em] uppercase text-accent mb-3">Application Received</p>
         <h1 class="font-display font-extrabold text-ink mb-4 leading-[1.05]" style="font-size: clamp(32px, 6vw, 52px); letter-spacing: -0.025em;">
-          You're in.<br>Let's build your future.
+          You're on the list.<br>Let's get to work.
         </h1>
         <p class="text-base text-ink-muted font-light leading-[1.7] mb-8 max-w-[380px] mx-auto">
-          Your payment was successful. Welcome to PivotPoint — everything is ready for you. Check your email for a confirmation and next steps.
+          Your mentorship application has been successfully submitted. We are thrilled to have you! Complete your onboarding by joining our Discord.
         </p>
 
         <!-- What's next cards -->
         <div class="flex flex-col gap-3 mb-10 text-left">
 
+          <!-- Card 1: Check Email -->
           <div class="flex items-start gap-4 bg-white border border-border rounded-xl px-5 py-4">
             <div class="w-9 h-9 bg-green-light rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
               <svg viewBox="0 0 24 24" fill="none" stroke="#0A7D00" stroke-width="1.8" class="w-5 h-5">
-                <path d="M4 4h16v16H4zM8 2v4M16 2v4M4 10h16" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 6l-10 7L2 6" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
             <div>
               <p class="text-sm font-medium text-ink mb-0.5">Check your inbox</p>
-              <p class="text-[13px] text-ink-muted font-light">A confirmation email is on your way.</p>
+              <p class="text-[13px] text-ink-muted font-light">Your invite link is waiting for you in your email.</p>
             </div>
           </div>
-            <div class="flex items-start gap-4 bg-white border border-border rounded-xl px-5 py-4">
+
+          <!-- Card 2: Discord (New for Mentorship) -->
+          <div class="flex items-start gap-4 bg-white border border-border rounded-xl px-5 py-4">
             <div class="w-9 h-9 bg-accent-light rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
               <svg viewBox="0 0 24 24" fill="none" stroke="#0080cc" stroke-width="1.8" class="w-5 h-5">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-linecap="round" stroke-linejoin="round"/>
@@ -175,16 +180,15 @@
             </div>
             <div>
               <p class="text-sm font-medium text-ink mb-0.5">Join the Discord</p>
-              <p class="text-[13px] text-ink-muted font-light">Connect with the rest of the PivotPoint community.</p>
+              <p class="text-[13px] text-ink-muted font-light">Our mentors will connect with you directly in the server to finalize your setup.</p>
             </div>
           </div>
-
 
         </div>
 
         <!-- CTA button -->
-        <a href="/" class="btn-primary inline-flex items-center gap-2 bg-green text-white px-8 py-3.5 rounded-full font-medium text-[15px] no-underline border-none cursor-pointer mb-6">
-          Go to homepage
+        <a href="/" class="btn-primary inline-flex items-center gap-2 bg-ink text-white px-8 py-3.5 rounded-full font-medium text-[15px] no-underline border-none cursor-pointer mb-6 hover:bg-ink-muted transition-colors">
+          Return to homepage
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
             <path d="M3 8h10M9 4l4 4-4 4"/>
           </svg>
@@ -193,10 +197,10 @@
         <!-- Countdown -->
         <div>
           <p class="text-[13px] text-ink-dim mb-2">
-            Redirecting to homepage in <span id="countdown" class="font-medium text-ink-muted">10</span>s
+            Redirecting to homepage in <span id="countdown" class="font-medium text-ink-muted">12</span>s
           </p>
           <div class="w-full h-1 bg-border rounded-full overflow-hidden">
-            <div class="progress-bar-fill" id="progress-bar" style="animation-duration: 10s;"></div>
+            <div class="progress-bar-fill" id="progress-bar" style="animation-duration: 12s;"></div>
           </div>
         </div>
 
@@ -210,13 +214,13 @@
       <a href="/" class="flex items-center no-underline">
         <img src="PivotPointLogo.png" alt="PivotPoint" class="h-7 w-auto opacity-50 hover:opacity-80 transition-opacity">
       </a>
-      <p class="text-[13px] text-ink-dim">Need help? <a href="mailto:hello@pivotpointeducation.com.au" class="text-green no-underline hover:underline">Contact us</a></p>
+      <p class="text-[13px] text-ink-dim">Need help? <a href="mailto:hello@pivotpointeducation.com.au" class="text-accent no-underline hover:underline">Contact us</a></p>
     </div>
   </footer>
 
   <script>
     // ── Countdown & redirect ──────────────────────────────
-    const SECONDS = 10;
+    const SECONDS = 12; // Gave them 2 extra seconds to read both cards
     const countdownEl = document.getElementById('countdown');
     let remaining = SECONDS;
 

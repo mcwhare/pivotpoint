@@ -207,9 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 if (response.ok) {
-                    alert("Success! Check your email for your exclusive Discord link.");
-                    mentorshipForm.reset();
-                    closeModals();
+                    window.location.href = '/app-success';
                 } else {
                     const data = await response.json();
                     throw new Error(data.error || "Failed to submit application");
